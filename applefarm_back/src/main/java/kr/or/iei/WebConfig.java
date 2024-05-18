@@ -1,6 +1,7 @@
 package kr.or.iei;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +18,8 @@ public class WebConfig implements WebMvcConfigurer{
 	
 	@Autowired
 	private LoginInterceptor loginInterceptor;
+	@Value("${file.root}")
+	private String root;
 	
 	
 	@Override
@@ -46,12 +49,12 @@ public class WebConfig implements WebMvcConfigurer{
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/board/editor/**")
-		.addResourceLocations("file:///C:/Temp/applefarm/boardEditor/");
+		.addResourceLocations("file:///"+root+"/boardEditor/");
 		registry.addResourceHandler("/board/thumbnail/**")
-		.addResourceLocations("file:///C:/Temp/applefarm/board/");
+		.addResourceLocations("file:///"+root+"/board/");
 		
 		registry.addResourceHandler("/product/img/**")
-		.addResourceLocations("file:///C:/Temp/applefarm/product/");
+		.addResourceLocations("file:///"+root+"/product/");
 	}
 
 	
