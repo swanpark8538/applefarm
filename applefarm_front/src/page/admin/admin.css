@@ -1,0 +1,800 @@
+.admin-tbl {
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-tbl td {
+  padding: 15px;
+}
+
+#member-like-tbl-box {
+  padding-top: 15px;
+}
+
+#member-like-tbl-box table {
+  border-collapse: collapse;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin: 0 15px;
+}
+
+#member-like-tbl-box table th {
+  background-color: rgb(39, 55, 65) !important;
+}
+
+.admin-section-wrap > div {
+  padding: 0;
+}
+
+.css-e363es-MuiFormControl-root * {
+  font-size: 12px !important;
+  color: #ffffff !important;
+  font-family: ns-l !important;
+  height: 20px !important;
+  border: none !important;
+  padding-top: 10px;
+}
+
+.css-e363es-MuiFormControl-root ul {
+  margin: 10px !important;
+}
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPaper-elevation8.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper {
+  margin-top: 15px !important;
+}
+
+.member-td select {
+  padding: 0 12px !important;
+  margin-right: 5px;
+  font-family: ns-l !important;
+}
+
+.member-td select:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #a29bfe;
+}
+
+.member-td select option {
+  background-color: whtie !important; /* 오타 수정: whtie -> white */
+}
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  font-size: 12px !important;
+  font-family: ns-r !important;
+}
+
+.css-e363es-MuiFormControl-root svg {
+  padding: 0 !important;
+  font-size: 16px !important;
+}
+
+.css-e363es-MuiFormControl-root {
+  height: 30px !important;
+  border: none;
+  outline: none;
+  background-color: rgb(115, 129, 134) !important;
+  padding-top: 1px !important;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  transition: all ease 0.1s;
+}
+
+.member-td select {
+  font-family: ns-l;
+}
+
+.member-td > select {
+  height: 30px !important;
+  border: none;
+  outline: none;
+  background-color: rgb(139, 167, 177) !important;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 500 !important;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+  transition: all ease 0.1s;
+}
+
+#admin-product-select {
+  background-color: transparent !important;
+  border: 0 !important;
+  font-family: ns-l;
+}
+
+#admin-product-select * {
+  color: black !important;
+  text-align: center !important;
+}
+
+.css-e363es-MuiFormControl-root:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px #a29bfe;
+}
+
+.admin-wrap {
+  display: flex;
+}
+
+.admin-sideMenu {
+  width: 200px;
+}
+
+.admin-section-wrap {
+  width: 1000px;
+}
+
+.admin-title {
+  font-size: 36px;
+  font-family: ns-eb;
+  margin-bottom: 20px;
+}
+
+.sideMenu-wrap .sideMenu ul li {
+  margin: 15px 0;
+}
+
+.purchase-btn-box button {
+  margin: 5px;
+}
+
+.purchase-btn-box button:last-child {
+  background-color: var(--main_02);
+}
+
+.admin-current-p {
+  font-family: ns-eb;
+  text-align: left;
+  font-size: 30px;
+  margin-left: 20px;
+}
+
+.in-progress {
+  font-weight: 900;
+}
+
+.approved {
+  color: var(--main_01);
+  font-weight: 900;
+}
+
+.rejected {
+  color: var(--main_02);
+  font-weight: 900;
+}
+
+#member-like-tbl-box > table thead tr th {
+  padding: 10px;
+  border-top: 1px solid #252525;
+  border-bottom: 1px solid #9d9d9d;
+  background-color: var(--main_01);
+  color: white;
+  font-family: ns-l;
+  font-weight: 400;
+}
+
+.date-select-wrap {
+  padding-top: 5px;
+  padding-bottom: 10px;
+  border-top: 1px solid #cfcfcf;
+  border-bottom: 1px solid #9d9d9d;
+  background-color: #fbfbfb;
+}
+
+.date-select-wrap > div {
+  padding: 10px;
+}
+.date-select-wrap button {
+  font-size: 12px;
+  font-family: ns-r;
+  margin: 0 3px;
+  line-height: 2em;
+}
+
+.date-select-wrap > div > div {
+  flex-grow: 1;
+}
+
+.date-select-wrap label {
+  font-size: 18px;
+}
+
+.date-select-wrap input {
+  width: 100px;
+  font-size: 16px;
+}
+
+.admin-tbl th:first-child div {
+  width: 130px;
+}
+
+#admin-product-select {
+  padding: 0;
+  background-color: var(--main_01);
+  color: white;
+  border: 1px solid var(--main_01);
+  font-size: 14px;
+  text-align: center;
+}
+
+.btnWrap {
+  text-align: right;
+  display: flex;
+}
+
+.admin-tbl td {
+  font-size: 14px;
+}
+
+.member-td div {
+  margin: 0;
+  height: 40px;
+}
+
+.sideMenu-wrap a:hover {
+  color: #0267f3;
+  font-weight: 900;
+}
+
+/*
+a:visited {
+  color: #b7b7b7;
+}
+*/
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+  padding-bottom: 25px;
+  text-align: center;
+  border-bottom: 1px solid #9d9d9d;
+}
+
+.summary div {
+  width: calc((100% / 4) - 15px);
+}
+
+.summary div p {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 900;
+}
+
+.summary div h4 {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.charts {
+  padding-top: 30px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.rank-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.rank-wrap div {
+  width: 380px;
+  padding-left: 30px;
+  padding-right: 50px;
+}
+
+.trade-title {
+  font-size: 20px !important;
+  font-weight: 900;
+  padding-left: 30px;
+  margin-bottom: 0;
+}
+
+.top-buyer ul p {
+  border-bottom: 1px solid rgb(177, 177, 177);
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.top-seller ul p {
+  border-bottom: 1px solid rgb(177, 177, 177);
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.tp-seller ul p {
+  border-bottom: 1px solid #eee;
+}
+
+.trade-king span {
+  font-size: 16px;
+}
+
+.rank-wrap div ul li {
+  padding: 10px 0;
+}
+
+.rank-wrap div p {
+  font-family: ns-b;
+}
+
+.rank-wrap div ul {
+  font-size: 20px;
+}
+
+.trade-king {
+  display: flex;
+  justify-content: space-between;
+}
+
+#trade-log-tbl {
+  text-align: center;
+}
+
+.dashboard-wrap {
+  margin-top: 10px;
+}
+
+.btnWrap > div > button > a {
+  color: white;
+}
+
+/*  대시보드  */
+.dashboard-btn button {
+  transform: translateY(0em);
+  background-color: var(--main_02) !important;
+  outline: 0;
+  border: 0;
+  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
+    0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
+    inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+  will-change: box-shadow, transform;
+  line-height: 2em;
+  margin-left: 30px;
+}
+
+s.dashboard-btn button:hover {
+  box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 80%),
+    0px 0.4em 0.7em -0.1em rgb(45 35 66 / 70%), inset 0px -0.1em 0px black;
+  transform: translateY(-0.1em);
+}
+
+.dashboard-btn button:active {
+  box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+  transform: translateY(0em);
+}
+
+.css-10o2lyd-MuiStack-root {
+  overflow: visible;
+}
+
+/*chat*/
+.chat-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: grid;
+  place-items: center;
+  background: #e3edf7;
+  padding: 1em;
+  border-radius: 50px;
+  box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+    0px 0px 5px 5px rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0);
+  cursor: pointer;
+  transition: transform 0.5s;
+}
+
+.chat-btn:hover {
+  box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+    inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+    -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+    0.5px 0.5px 0px rgba(0, 0, 0, 0.15), 0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transform: translateY(0.5em);
+}
+
+.chat-btn svg {
+  transition: transform 0.5s;
+}
+
+.chat-btn:hover svg {
+  transform: scale(0.9);
+  fill: var(--main_01);
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #f5f5f5;
+}
+
+.chat-box {
+  width: 500px;
+  height: 600px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 14px 24px rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-list {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.user-message,
+.ai-message {
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+
+.user-message {
+  align-self: flex-end;
+  background: #2979ff;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 16px 16px 0 16px;
+}
+
+.ai-message {
+  align-self: flex-start;
+  background: #f0f0f0;
+  color: #333;
+  padding: 10px 15px;
+  border-radius: 16px 16px 16px 0;
+}
+
+.message-form {
+  border-top: 1px solid #f0f0f0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.message-input {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  border-radius: 16px;
+  border: none;
+  background-color: #2979ff;
+  color: #fff;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  margin: 0;
+}
+
+/* 모달 */
+.chat-modal-current-wrap {
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.chat-message {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+xssad .roomTitle {
+  height: 50px;
+}
+
+.chat-modal-content {
+  position: fixed;
+  top: 60%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px,
+    rgba(0, 0, 0, 0.14) 0px 24px 38px 3px, rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+}
+
+/* 채팅 css */
+
+.chat-header {
+  background-color: rgb(68, 79, 173);
+  height: 50px;
+}
+
+.chat-header > div {
+  padding: 10px;
+  color: white;
+}
+
+.chat-message-area {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.chat-body div {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.chat-footer {
+  display: flex;
+}
+
+.chat-footer button {
+  width: 20%;
+}
+
+.chat-footer button:disabled {
+  background-color: #eee;
+}
+
+.chat-footer button:enabled {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+.chat-footer textarea {
+  padding: 10px;
+  width: 100%;
+}
+
+.chat.left {
+  align-self: flex-start;
+}
+
+.chat.right {
+  align-self: flex-end;
+}
+
+.user {
+  display: flex;
+}
+
+.user > span {
+  margin: 0px 3px;
+}
+
+.right > .user {
+  flex-direction: row-reverse;
+}
+
+.chatting-message {
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.left > .chatting-message {
+  margin-left: 20px;
+  background-color: #fff;
+}
+
+.right > .chatting-message {
+  margin-right: 20px;
+  background-color: rgb(247, 247, 45);
+}
+
+.info {
+  align-self: center;
+}
+
+.info > span {
+  color: var(--gray_04);
+}
+
+/*-------------- 채팅방 리스트 --------------*/
+
+.chat-room-list {
+  padding: 15px 5px;
+}
+
+.chat-list-ul {
+  height: 500px;
+  display: flex;
+  background-color: ;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: auto;
+  margin: 0;
+}
+
+.chat-room-list li {
+  list-style-type: none;
+  padding: 20px 10px;
+}
+.chat-room-list li:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.chat-list-div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between; /* 가로 방향으로 공간을 균등하게 분배합니다. */
+}
+
+.chat-list-body {
+  display: flex;
+  align-items: center;
+}
+
+.chat-list-div img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+.chat-title-content p {
+  margin: 0;
+}
+
+.chat-list-content {
+  color: gray;
+}
+.chat-list-div .chat-title {
+  flex-grow: 1; /* 나머지 공간을 모두 차지하도록 설정합니다. */
+  margin-left: 10px; /* 이미지와 제목 사이 간격 추가 */
+}
+
+.chat-list-div span:last-child {
+  font-size: 12px;
+  color: gray;
+  text-align: right; /* 시간을 오른쪽으로 정렬합니다. */
+}
+
+.chat-list-body {
+  font-size: 16px;
+}
+
+.chat-list {
+  padding: 15px 20px !important;
+}
+
+.chat-list-body {
+  display: flex;
+  align-items: center;
+}
+
+.chat-list-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px; /* 이미지와 제목 사이의 간격 조정 */
+}
+
+.chat-title-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.refund-thumbnail {
+  width: 100px;
+}
+
+.adminalink:hover {
+  color: #ff6600; /* 마우스를 올렸을 때 글자 색상 변경 */
+  font-weight: 900;
+}
+
+/* 모달 : 챗 로더 */
+.one-div {
+  width: 100%;
+  height: 500px;
+  display: grid;
+  position: relative;
+  background: radial-gradient(circle 44px at top, #0000 94%, #5dc1e4) 0 40px,
+    radial-gradient(circle 44px at top, #0000 94%, #008cd9) 0 0;
+  background-size: 80px 100%;
+  background-repeat: repeat-x;
+  animation: a 1s infinite linear;
+  border-radius: 20px;
+  transition: height 1s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.one-div:hover {
+  height: 350px;
+}
+
+.one-div:before {
+  content: "";
+  width: 100%;
+  z-index: 1;
+  background: radial-gradient(circle 44px at top, #0000 94%, #b0e5f3) 0 70px;
+  background-size: 80px 100%;
+  background-repeat: repeat-x;
+  animation: b 1s infinite linear;
+  border-radius: 20px;
+}
+
+.one-div:after {
+  content: "";
+  position: absolute;
+  width: 70px;
+  height: 150px;
+  background: linear-gradient(#f0caa3 0 0) bottom/16% 67%,
+    linear-gradient(#33b54d 0 0) 50% 50%/54% 12%,
+    radial-gradient(farthest-side at bottom left, #33b54d 98%, #0000) 100% 48%/25%
+      12%,
+    radial-gradient(farthest-side at bottom right, #33b54d 98%, #0000) 0 48%/25%
+      12%,
+    radial-gradient(farthest-side at top left, #0000 98%, #33b54d) 16% 30%/31%
+      20%,
+    radial-gradient(farthest-side at top right, #0000 98%, #33b54d) 87% 30%/31%
+      20%,
+    linear-gradient(#a87d53 0 0) top/20% 8%,
+    linear-gradient(#33b54d 0 0) 50% 7%/37% 8%,
+    linear-gradient(#33b54d 0 0) bottom/100% 50%,
+    linear-gradient(#33b54d 0 0) center/20% 100%;
+  background-repeat: no-repeat;
+  border-radius: 0 0 20px 20px;
+  left: calc(50% - 35px);
+  top: 0px;
+  transform: rotate(45deg);
+  animation: c 1s infinite linear;
+}
+
+@keyframes a {
+  50% {
+    background-position: -40px 15px, 45px 10px;
+  }
+
+  100% {
+    background-position: -80px 40px, 80px 0px;
+  }
+}
+
+@keyframes b {
+  50% {
+    background-position: 40px 45px;
+  }
+
+  100% {
+    background-position: 80px 70px;
+  }
+}
+
+@keyframes c {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(40deg);
+  }
+
+  33% {
+    transform: translate(10px, -20px) rotate(50deg);
+  }
+
+  66% {
+    transform: translate(5px, -10px) rotate(30deg);
+  }
+}

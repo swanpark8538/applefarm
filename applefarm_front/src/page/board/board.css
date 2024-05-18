@@ -1,0 +1,347 @@
+/* 
+기본 색상 
+  --main_01: #0267f3;
+  --main_02: #ff3d00;
+  --main_03: #2f6082;
+  --main_04: #8f8f8f;
+  --main_05: #1065dc;
+*/
+
+.inner-section-wrap {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.board-title {
+  font-size: 26px;
+  color: #000;
+  text-align: left;
+}
+
+.board-title p {
+  font-family: ns-eb;
+  text-align: center;
+}
+
+.board-subtitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.board-subtitle .totalPostCount {
+  margin-top: auto;
+  font-size: 16px;
+}
+
+.board-tbl-box {
+  margin-top: 10px;
+}
+.board-tbl-box table {
+  width: 100%;
+  border-bottom: 1px solid #717171;
+  font-size: 15px;
+  border-spacing: 0;
+}
+
+.board-tbl-box > table > thead > tr > th {
+  padding: 10px;
+  border-top: 1px solid #252525;
+  border-bottom: 1px solid #9d9d9d;
+  background-color: aliceblue;
+}
+
+.board-tbl-box > table > tbody > tr > td {
+  text-align: center;
+  padding: 15px 5px;
+}
+
+.board-tbl-box > table > tbody > tr > td:nth-child(2) {
+  text-align: left;
+  cursor: pointer;
+}
+
+.board-tbl-box > table > tbody > tr > td:nth-child(2):hover {
+  font-weight: 900;
+}
+
+.board-frm-title {
+  font-size: 22px;
+  color: black;
+  font-family: ns-b;
+  padding: 20px 0px;
+}
+.board-frm-top {
+  display: flex;
+  justify-content: space-between;
+}
+.board-thumbnail {
+  width: 300px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+.board-thumbnail > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.board-info {
+  width: 900px;
+}
+.board-info-tbl {
+  width: 100%;
+  border-spacing: 0;
+  border: 1px solid #e2e2e2;
+}
+
+.board-info-tbl tr {
+  font-size: 14px;
+}
+
+.board-info-tbl tr > td:first-child {
+  width: 150px;
+  padding: 10px 20px;
+  background-color: rgba(55, 140, 231, 0.1);
+  border: 1px solid rgba(55, 140, 231, 0.1);
+}
+.board-info-tbl tr > td:last-child {
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+}
+
+.board-info-tbl tr > td > input[type="text"] {
+  border: none;
+  padding: 0;
+}
+.file-zone {
+  height: 118px;
+  overflow-y: auto;
+}
+.file-zone > p {
+  padding: 0;
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.file-zone > p > .del-file-icon {
+  right: 0;
+  top: 5px;
+  cursor: pointer;
+}
+
+.file-zone > p:hover {
+  background-color: rgba(103, 198, 227, 0.1);
+}
+.board-frm-bottom {
+  margin: 10px 0px;
+}
+
+.board-frm-bottom .ql-editor {
+  height: 400px;
+}
+
+.board-view-wrap {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+.board-view-top {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.board-view-top {
+  border: 1px solid rgb(213, 213, 213);
+}
+
+.board-view-thumbnail {
+  width: 400px;
+  height: 350px;
+}
+.board-view-thumbnail > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.board-view-info {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+}
+
+.board-view-info > div {
+  padding: 10px;
+  border: 0.1px solid rgb(230, 230, 230);
+}
+
+.file-list td {
+  height: 100px;
+}
+
+.board-view-info > .board-view-title {
+  font-family: ns-r;
+  font-size: 1em;
+}
+
+.board-view-sub-info > div {
+  margin-right: 10px;
+  font-size: 0.9em;
+  padding: 5px;
+}
+.board-view-file {
+  flex: 1;
+  overflow-y: auto;
+}
+.board-view-file > div:first-child {
+  height: 50px;
+  line-height: 50px;
+  font-family: ns-b;
+  color: #5356ff;
+}
+.board-view-file > .file-zone {
+  height: 230px;
+}
+
+.board-view-file > .file-zone > .board-file {
+  padding: 10px;
+  position: relative;
+}
+.board-view-file > .file-zone > .board-file:hover {
+  background-color: rgba(103, 198, 227, 0.1);
+}
+
+.board-file {
+  height: 0px !important;
+}
+
+.board-file > .file-icon {
+  position: absolute;
+  top: 11px;
+  cursor: pointer;
+}
+
+#commentUpdateBtn {
+  background-color: black;
+}
+
+#commentDelBtn {
+  background-color: var(--main_02);
+}
+
+.comment-writer {
+  color: var(--main_02);
+}
+
+.board-file .file-name {
+  margin-left: 35px;
+}
+
+.board-view-detail {
+  min-height: 400px;
+  padding: 20px;
+  border-right: 1px solid rgb(213, 213, 213);
+  border-left: 1px solid rgb(213, 213, 213);
+  border-bottom: 1px solid rgb(213, 213, 213);
+}
+.board-view-btn-zone {
+  padding: 20px 0px;
+}
+.board-view-btn-zone > button {
+  width: 100px;
+  margin-right: 20px;
+}
+
+.board-frm-btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.board-frm-btn-box > button {
+  width: 100px;
+  margin-right: 20px;
+}
+
+#board-write-btn {
+  width: 100%;
+}
+
+.board-view-detail p img {
+  width: 200px;
+}
+
+.board-view-btn-zone {
+  display: flex;
+  justify-content: center;
+}
+
+/* 댓글 폼 */
+.comment-box {
+  display: flex;
+  width: 960px;
+}
+
+.posting-comment li {
+  display: flex;
+}
+
+.comment-contents {
+  flex-grow: 1;
+  /* margin-left: 40px; */
+}
+
+.comment-date-wrap {
+  gap: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.comment-content textarea {
+  width: 880px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.write-comment-btn button {
+  width: 80px;
+  height: 60px;
+}
+
+.comment-date {
+  /* margin-left: 100px; */
+}
+
+.posting-comment li {
+  align-items: center;
+  gap: 40px;
+  margin: 30px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.posting-comment button {
+  margin: 5px;
+}
+
+.search_board {
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  border-top: 1px solid rgb(212, 212, 212);
+}
+
+.search_board > select {
+  width: 100px;
+}
+
+.search_board > input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid rgb(211, 211, 211);
+  margin: 0 10px;
+}

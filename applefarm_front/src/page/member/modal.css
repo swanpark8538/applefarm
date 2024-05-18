@@ -1,0 +1,386 @@
+.modal {
+  position: fixed;
+  z-index: 1001; /*header:1000*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-round {
+  border-radius: 15px;
+}
+.modal-content-wrap {
+  overflow: hidden;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 450px;
+  text-align: center;
+  position: absolute;
+  /*
+  animation: swal2-show 0.3s;
+  margin: 22% auto;
+  left: 50%;
+  top: 50%;
+  position: absolute;*/
+}
+.modal-text {
+  font-size: 15px;
+}
+.close-icon-wrap {
+  overflow: hidden;
+}
+.close-icon {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+.like-modal-btn {
+  padding: 5px;
+  margin: 10px;
+  width: 80px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+.modal-main-icon {
+  font-size: 28px;
+  cursor: default;
+}
+.modal-title {
+  font-size: 17px;
+  font-family: ns-b;
+  padding: 10px 0px;
+}
+.address-input-wrap {
+  padding: 10px 20px;
+}
+.address-input-wrap > div {
+  text-align: left;
+}
+.address-input-wrap > div > label {
+  font-family: ns-b;
+  font-size: 13px;
+}
+.address-modal-content-wrap {
+  width: 500px;
+  border-radius: 10px;
+}
+.zipcode-wrap {
+  position: relative;
+}
+.zipcode-btn {
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+  padding: 7px 13px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  /*
+  background-color: rgba(2, 103, 243, 0.5);
+  */
+}
+.zipcode-btn:hover {
+  text-shadow: 0px 0px 0px black;
+}
+.address-modal-btn,
+.request-btn {
+  padding: 10px 15px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  width: 25%;
+  margin-right: 10px;
+}
+.address-default-check-box-wrap {
+  text-align: left;
+  padding: 0px 0px 5px 16px;
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.address-default-check-box-wrap > input {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+.address-default-check-box-wrap > label {
+  font-size: 13px;
+}
+.address-disable-input {
+  color: #545454;
+  cursor: default;
+}
+.address-checkmsg {
+  color: red;
+  font-size: 13px;
+  position: absolute;
+}
+.address-active {
+  background-color: red;
+}
+.address-ok-btn:disabled {
+  background-color: var(--gray_08);
+}
+/*요청사항 모달*/
+.request-message {
+  text-align: left;
+  padding: 10px;
+}
+.request-message > div {
+  font-size: 14px;
+  padding: 0px 10px 15px 10px;
+  cursor: pointer;
+}
+.request-message > div:not(:last-child) {
+  font-size: 14px;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+.request-message > div > textarea {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+  height: 100px;
+}
+.request-message > div > textarea::placeholder {
+  color: #ccc;
+}
+.request-message > div:not(:nth-child(n + 5)) {
+  border-bottom: 1px solid var(--gray_07);
+}
+.request-btn {
+  padding: 10px 13px;
+}
+.request-btn:last-child {
+  background-color: var(--main_01);
+  color: white;
+}
+.request-active {
+  border: 2px solid #0267f3;
+}
+.request-chk {
+  color: #0267f3;
+  position: absolute;
+  right: 50px;
+}
+.request-option {
+  font-family: ns-b;
+}
+.modal-product-status-title {
+  margin-bottom: 10px;
+  padding: 10px 0px;
+  font-family: ns-b;
+}
+.status-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.status-btns {
+  border: 1px solid #ccc;
+  width: calc(92% / 3);
+  height: 40px;
+  padding: 5px 0px;
+  margin: 5px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-size: 13.5px;
+}
+.current-status {
+  border-color: #0267f3;
+  font-weight: 600;
+}
+.status-modal {
+  text-align: left;
+}
+.bid-change-input-box > input {
+  width: 70%;
+  margin: 20px 5px 25px 5px;
+  padding: 0.75em;
+  height: 2.625em;
+  border-radius: 0.1875em;
+  border: 1px solid #d9d9d9;
+  transition: border-color 0.1s, box-shadow 0.1s;
+  font-size: 16px;
+}
+.bid-change-input-box > input::placeholder {
+  color: #ccc;
+  font-size: 15px;
+}
+.bid-change-input-box > input:focus {
+  border: 1px solid #b4dbed;
+  outline: none;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.06),
+    0 0 0 3px rgba(100, 150, 200, 0.5);
+}
+.modal-title-sub-message {
+  font-size: 13px;
+  color: var(--gray_04);
+}
+.change-status-sbtn:not(:disabled) {
+  background-color: #0267f3;
+  font-family: ns-b;
+  color: #fff;
+  border: none;
+}
+.sub-sub-s {
+  color: var(--gray_05);
+  font-size: 11px;
+  padding-top: 3px;
+}
+.bid-change-input-box {
+  position: relative;
+}
+.bid-buy-msg {
+  position: absolute;
+  color: #0267f3;
+  font-size: 12px;
+  bottom: 5px;
+  left: 60px;
+}
+.active-bid-purchase {
+  background-color: var(--main_02);
+  color: #fff;
+  font-family: ns-b;
+  border: none;
+}
+/*
+.active-bid-purchase:hover {
+  box-shadow: 0px 0px 5px #749db1;
+}*/
+.modal-title2 {
+  color: #545454;
+}
+/*후기모달*/
+.modal-content .product-info-wrap {
+  display: flex;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 10px;
+  align-items: center;
+  font-size: 14px;
+}
+.modal-content .product-info-wrap > div > a > img {
+  width: 100px;
+  height: 100px;
+}
+.modal-content .product-info-text {
+  flex: 1;
+  text-align: left;
+  padding-left: 10px;
+}
+.modal-content .product-seller-nick {
+  font-size: 12px;
+}
+.modal-size-more {
+  width: 520px;
+}
+.modal-content .level-select {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px 30px 0px;
+}
+.modal-content .select-img {
+  width: 60px;
+  height: 60px;
+  margin: 20px 30px 0px 30px;
+  cursor: pointer;
+}
+.modal-content .level-select > div > div {
+  font-size: 13px;
+  cursor: pointer;
+}
+.modal-content .current-level {
+  color: var(--main_02);
+  font-family: ns-b;
+}
+.modal-content .current-img {
+  width: 65px;
+  height: 65px;
+}
+.modal-content .textarea-box-wrap {
+  padding: 10px;
+  box-sizing: border-box;
+}
+.modal-content .textarea-box {
+  width: 100%;
+  resize: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 200px;
+  outline: none;
+  padding: 10px;
+}
+.modal-sub-message {
+  font-size: 12px;
+  text-align: left;
+  padding: 10px;
+  color: #545454;
+}
+.modal-sub-message > span {
+  text-decoration: underline;
+}
+/*배송조회모달*/
+.tracking-number {
+  display: flex;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.tracking-number > div {
+  font-family: ns-b;
+  padding: 3px 10px;
+}
+.tracking-number > div:nth-child(2) {
+  flex: 1;
+  text-align: left;
+  border-left: 1px solid #ccc;
+  font-family: ns-r;
+}
+.tracking-content > table > tbody > tr > td {
+  padding: 0px;
+  font-size: 13px;
+}
+.tracking-content > table > thead > tr > td {
+  font-family: ns-b;
+}
+.tracking-content > table > tbody > tr > td:nth-child(2) {
+  text-align: center;
+}
+.modal-tracking-title {
+  font-family: ns-b;
+  padding-bottom: 10px;
+}
+.tracking-content > table {
+  border: 1px solid #ccc;
+}
+.tracking-content > table > thead > tr {
+  border: 1px solid #ccc;
+}
+.tracking-content > table > tbody > tr {
+  border: 1px solid #ccc;
+}
+.big-modal {
+  width: 500px;
+  border-radius: 10px;
+}
+.tracking-btn > button {
+  border: 1px solid #e5e5e5;
+  background-color: #fcfcfc;
+  padding: 5px 15px;
+  margin: 10px 10px 0px 10px;
+}
+.tracking-btn > button:hover {
+  border-color: #545454;
+}

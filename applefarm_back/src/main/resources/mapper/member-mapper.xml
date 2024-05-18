@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.or.iei.member.model.dao.MemberDao">
+	<select id="selectAddressCount" resultType="int">
+		select count(*) from
+		address_tbl where member_no=#{memberNo}
+	</select>
+	<update id="updateAddressDefault">
+		update address_tbl set address_default = 0 where
+		member_no=#{memberNo}
+	</update>
+	<insert id="insertAddress">
+		insert into address_tbl
+		values(address_seq.nextval,#{memberNo},#{zipcode},#{address},#{addressDetail},#{addressName},#{addressPhone},#{addressRequest},#{addressDefault})
+	</insert>
+	<select id="selectAddressBasic" resultType="address">
+		select * from
+		address_tbl where member_no=#{memberNo} and address_default=1
+	</select>
+	<select id="addressNoBasicTotalCount" resultType="int">
+		select count(*)
+		from address_tbl where member_no=#{memberNo} and address_default=0
+	</select>
+	<select id="selectAddressList" resultType="address">
+		select * from (select
+		rownum as rnum, a.* from (select * from address_tbl where
+		member_no=#{memberNo} and address_default=0 order by 1 desc)a) where
+		rnum between #{start} and #{end}
+	</select>
+	<select id="selectAddress" resultType="address">
+		select * from address_tbl
+		where member_no=#{memberNo} order by address_default desc,address_no
+		desc
+	</select>
+	<delete id="deleteAddress">
+		delete from address_tbl where address_no=#{addressNo}
+	</delete>
+	<update id="updateAddressDefault1">
+		update address_tbl set address_default = 1 where
+		address_no=#{addressNo}
+	</update>
+
+	<select id="selectLike" resultType="like">
+		SELECT
+		q.*
+		FROM
+		(
+		SELECT
+		a.like_no,
+		a.member_no,
+		a.product_no,
+		b.member_no as seller_no,
+		b.product_summary,
+		b.product_price,
+		b.product_quality,
+		b.product_thumbnail,
+		b.product_title,
+		c.member_nickname,
+		(SELECT COUNT(*) FROM trade_tbl
+		WHERE product_no = a.product_no) AS trade
+		FROM
+		like_tbl a
+		JOIN
+		product_tbl b ON a.product_no = b.product_no
+		JOIN
+		member_tbl c ON
+		b.member_no = c.member_no
+		WHERE
+		a.member_no = #{memberNo}
+		) q
+		order by 1
+		desc
+	</select>
+	<delete id="deleteLike">
+		delete from like_tbl where like_no=#{likeNo}
+	</delete>
+
+	<select id="selectOneEmail" resultType="int">
+
+
+		select count(*) from
+		member_tbl where member_email=#{memberEmail}
+
+	</select>
+
+	<select id="selectOneId" resultType="int">
+
+		select count(*) from
+		member_tbl where member_id=#{memberId}
+
+	</select>
+
+	<select id="selectOneNickName" resultType="int">
+
+		select count(*) from
+		member_tbl where member_nickname=#{memberNickName}
+
+
+	</select>
+
+	<insert id="join">
+
+		insert into member_tbl values
+		(
+		MEMBER_SEQ.nextval,
+		#{memberName},
+		#{memberNickName},
+		#{memberId},
+		#{memberPw},
+		#{memberEmail},
+		#{memberPhone},
+		1,
+		#{memberAccountnumber},
+		sysdate,
+		37,
+		1,
+		0,
+		#{memberBlackTime}
+		)
+
+	</insert>
+
+
+	<select id="memberTotalCount" resultType="int">
+		select count(*) from
+		member_tbl
+	</select>
+
+	<select id="select" resultType="member">
+		SELECT * FROM
+		(SELECT ROWNUM AS
+		RNUM, M.* FROM
+		(SELECT
+		MEMBER_NO,
+		MEMBER_ID,
+		MEMBER_GRADE,
+		MEMBER_PHONE,
+		SELLER_SCORE,
+		ENROLL_DATE
+		FROM MEMBER_TBL ORDER BY 1)M)
+		WHERE RNUM
+		BETWEEN #{start} AND #{end}
+	</select>
+
+
+	<update id="updateSearchUpdateBasicAddress"
+		parameterType="address">
+		update address_tbl set address_default = 0 where
+		address_no=#{addressNo}
+		<selectKey resultType="int" order="BEFORE"
+			keyProperty="addressNo">
+			select address_no from address_tbl where
+			member_no=#{memberNo} and
+			address_default = 1
+		</selectKey>
+	</update>
+	<select id="selectBasicAddressNo" resultType="int">
+		select address_no
+		from address_tbl where member_no=#{memberNo} and
+		address_default = 1
+	</select>
+	<update id="updateBasicAddress">
+		update address_tbl set address_default = 0 where
+		address_no=#{addressNo}
+	</update>
+	<update id="updateAddress">
+		update address_tbl set address_name=#{addressName},
+		address_phone=#{addressPhone}, zipcode=#{zipcode}, address=#{address},
+		address_detail=#{addressDetail}, address_default=#{addressDefault}
+		where address_no=#{addressNo}
+	</update>
+					
+
+
+
+	<select id="selectNo" resultType="member">
+		select * from member_tbl where
+		member_No=#{memberNo}
+	</select>
+
+	<select id="selectBlackMemberCheckList" resultType="member">
+		SELECT * FROM
+		MEMBER_TBL where member_grade =3
+	</select>
+
+	<update id="changeMemberGrade">
+		UPDATE member_tbl
+		SET member_grade = #{memberGrade},
+		member_black_time =
+		<choose>
+			<when test="memberGrade == 3">
+				TO_CHAR(SYSDATE, 'yyyy-mm-dd
+				hh24:mi:ss')
+			</when>
+			<otherwise>
+				null
+			</otherwise>
+		</choose>
+		WHERE member_no = #{memberNo}
+	</update>
+
+	<update id="updateBlackMemberGrade">
+		update member_tbl
+		set member_grade = #{memberGrade},
+		member_black_time=#{memberBlackTime} where member_no =#{memberNo}
+	</update>
+
+
+	<select id="OneMemberNo" resultType="Integer">
+
+
+		select member_no from
+		member_tbl where member_id =#{memberId}
+
+	</select>
+
+
+	<select id="getMemberInfo" resultType="member">
+
+		select * from member_tbl
+		where member_no = #{memberNo}
+
+	</select>
+
+	<update id="updateEmail">
+
+		update member_tbl set member_email = #{memberEmail}
+		where member_no =
+		#{memberNo}
+
+	</update>
+
+	<delete id="deleteMember">
+
+		update member_tbl set member_withdraw = 1 where member_no = #{memberNo}
+
+	</delete>
+
+	<update id="updatePw">
+
+
+		update member_tbl set member_pw=#{memberPw} where
+		member_no = #{memberNo}
+
+
+	</update>
+
+
+
+
+
+
+
+	<select id="selectMemberList" resultType="member">
+		SELECT *
+		FROM (
+		SELECT
+		rownum AS rnum, M.*
+		FROM (
+		SELECT *
+		FROM member_tbl
+		) M
+		)
+		WHERE rnum BETWEEN
+		#{start} AND #{end}
+	</select>
+
+
+	<update id="updatePhone">
+
+		update member_tbl set member_phone=#{memberPhone}
+		where member_no =
+		#{memberNo}
+
+	</update>
+
+
+	<update id="addAccountNumber">
+
+
+		update member_tbl set member_accountnumber =
+		#{memberAccountnumber} where
+		member_no = #{memberNo}
+
+	</update>
+
+	<update id="deleteAccountNumber">
+
+		update member_tbl set member_accountnumber = null
+		where member_no =
+		#{memberNo}
+
+	</update>
+
+	<select id="getMemberId" resultType="string">
+
+		select member_id from
+		member_tbl where member_email = #{memberEmail}
+
+	</select>
+
+	<update id="resetPw">
+
+		update member_tbl set member_pw=#{memberPw} where
+		member_email =
+		#{memberEmail}
+
+	</update>
+
+	<select id="getSalesHistory" resultType="product">
+
+		SELECT
+		p.product_no,
+		p.product_date,
+		p.product_thumbnail,
+		p.product_summary,
+		p.product_price,
+		MAX(b.bid_price) AS max_bid_price,
+		t.trade_state,
+		t.trade_date,
+		t.invoice_number,
+		t.trade_price,
+		t.trade_no,
+		t.invoice_number,
+		p.product_title
+		FROM
+		member_tbl m
+		JOIN
+		product_tbl p ON m.member_no = p.member_no
+		LEFT JOIN
+		bid_tbl b ON p.product_no = b.product_no
+		LEFT JOIN
+		trade_tbl t ON
+		p.product_no = t.product_no
+		WHERE
+		m.member_no = #{memberNo}
+		GROUP BY
+		p.product_no,
+		p.product_date,
+		p.product_thumbnail,
+		p.product_summary,
+		p.product_price,
+		t.trade_state,
+		t.trade_date,
+		t.invoice_number,
+		t.trade_price,
+		t.trade_no,
+		t.invoice_number,
+		p.product_title
+		ORDER BY
+		p.product_date desc
+
+	</select>
+
+	<update id="changeSalesPrice">
+
+		update product_tbl
+		set product_price = #{changePrice}
+		where product_no = #{productNo}
+
+	</update>
+
+	<delete id="deleteSalesProduct">
+
+		delete from product_tbl where product_no =
+		#{productNo}
+
+	</delete>
+
+	<update id="updateInvoiceNum">
+
+		update
+		trade_tbl
+		set
+		trade_state = '배송중',
+		invoice_number
+		= #{invoiceNumber}
+		where product_no = #{productNo}
+
+	</update>
+
+	<select id="getSalesProductDetails" resultType="trade">
+
+		select
+		p.product_thumbnail,
+		p.product_summary,
+		t.trade_price,
+		t.trade_date,
+		m.member_accountnumber,
+		t.address,
+		t.address_detail,
+		t.address_name,
+		m.member_phone,
+		t.trade_state,
+		m.seller_grade,
+		t.zipcode,
+		m.member_name
+		from product_tbl p
+		join trade_tbl t on p.product_no = t.product_no
+		left
+		join member_tbl m on t.trade_seller = m.member_no
+		where p.product_no =
+		#{productNo}
+		group by
+		p.product_thumbnail,
+		p.product_summary,
+		t.trade_price,
+		t.trade_date,
+		m.member_accountnumber,
+		t.address,
+		t.address_detail,
+		t.address_name,
+		m.member_phone,
+		t.trade_state,
+		m.seller_grade,
+		t.zipcode,
+		m.member_name
+
+
+	</select>
+
+	<select id="getRefund" resultType="product">
+
+		SELECT r.refund_status,r.refund_date ,
+		p.product_thumbnail,
+		p.product_summary,
+		p.product_price
+		FROM
+		(SELECT t.*
+		FROM trade_tbl t
+		WHERE t.trade_seller = #{memberNo} or t.trade_buyer = #{memberNo}
+		) t_member
+		JOIN refund_tbl r ON t_member.trade_no = r.trade_no
+		JOIN product_tbl p ON r.product_no = p.product_no
+
+	</select>
+	
+	<select id="getOnlyProduct" resultType="product">
+	
+		SELECT 
+        	p.product_no,
+			p.product_date,
+			p.product_thumbnail,
+			p.product_summary,
+			p.product_price,
+			MAX(b.bid_price) AS max_bid_price,
+        	t.trade_state,
+        	p.product_title
+		FROM
+			member_tbl m
+		JOIN 
+			product_tbl p ON m.member_no = p.member_no
+		LEFT JOIN
+			bid_tbl b ON p.product_no = b.product_no
+		LEFT JOIN 
+			trade_tbl t ON p.product_no = t.product_no
+		WHERE
+			m.member_no = #{memberNo} AND t.product_no IS NULL
+		GROUP BY
+			p.product_no,
+			p.product_date,
+			p.product_thumbnail,
+			p.product_summary,
+			p.product_price,
+        	t.trade_state,
+        	p.product_title
+		ORDER BY
+			p.product_date desc
+	
+	</select>
+
+
+</mapper>

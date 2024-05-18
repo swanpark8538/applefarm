@@ -1,0 +1,207 @@
+.input_form {
+  border: none;
+  border-bottom: 1px solid var(--gray_05);
+  padding: 5px 0 5px 0;
+  font-size: 16px;
+  width: 100%;
+}
+
+.input_form2 {
+  border: none;
+  border-bottom: 1px solid var(--gray_05);
+  padding: 10px 0px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+}
+.input_form2::placeholder {
+  color: #ccc;
+}
+.input_focus:focus {
+  border-bottom-color: black;
+  border-width: 2px;
+}
+
+.button_form {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--main_01);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.btn_form {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-family: ns-b;
+  line-height: 1.5;
+  text-align: center;
+  transition: all 0.2s;
+}
+.bg1 {
+  background-color: var(--main_01);
+}
+.bg2 {
+  background-color: var(--gray_04);
+}
+.bg3 {
+  background-color: var(--gray_05);
+}
+.bg4 {
+  background-color: var(--main_02);
+}
+.bg5 {
+  background-color: #a5a5a5;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 5px;
+  border: 1px solid var(--gray_05);
+  border-radius: 4px;
+  background-color: #fff;
+  color: var(--gray_05);
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 18px;
+}
+
+.badge.blue {
+  border-color: var(--bg_01);
+  background-color: var(--bg_01);
+  color: var(--main_01);
+}
+
+.badge.blue.outline {
+  border-color: var(--main_01);
+  background-color: #fff;
+  color: var(--main_01);
+}
+
+.badge.red {
+  border-color: var(--bg_01);
+  background-color: var(--bg_02);
+  color: var(--main_02);
+}
+
+.badge.red.outline {
+  border-color: var(--main_02);
+  background-color: #fff;
+  color: var(--main_02);
+}
+
+.badge.black {
+  border-color: var(--bg_01);
+  background-color: var(--black_01);
+  color: var(--gray_08);
+}
+
+.badge.black.outline {
+  border-color: var(--gray_01);
+  background-color: #fff;
+  color: var(--gray_01);
+}
+
+.badge.gray {
+  border-color: var(--bg_01);
+  background-color: var(--gray_06);
+  color: var(--gray_01);
+}
+
+.badge.gray.outline {
+  border-color: var(--gray_04);
+  background-color: #fff;
+  color: var(--gray_04);
+}
+
+.msgSuccess {
+  color: var(--main_01);
+}
+
+.msgFail {
+  color: var(--main_02);
+}
+
+.input_item {
+  padding-top: 20px;
+}
+
+.input_wrap label {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.select_form {
+  width: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  padding: 8px 12px;
+  color: var(--gray_04);
+  border: 1px solid var(--gray_06);
+}
+
+/*박성완*/
+/*박성완- PswRadio*/
+.input_wrap_psw {
+  width: 100%;
+  border: 1px solid var(--gray_02);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.input_wrap_psw.input_wrap_psw_focus {
+  border: 3px solid var(--main_01);
+  box-sizing: border-box;
+}
+.input_wrap_psw > .psw_radio {
+  display: none;
+}
+.input_wrap_psw .psw_radio_label {
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}
+.input_wrap_psw .psw_radio_span img {
+  object-fit: contain;
+  width: 25px;
+  height: 25px;
+}
+/*박성완 - PswRadioQuality*/
+.input_wrap_quality_psw {
+  width: 100%;
+  border: 1px solid var(--gray_02);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center; /*input_wrap_psw에서 이거 한 줄 바뀜*/
+  align-items: center;
+  cursor: pointer;
+}
+.input_wrap_quality_psw.input_wrap_psw_focus {
+  border: 3px solid var(--main_01);
+  box-sizing: border-box;
+}
+.input_wrap_quality_psw > .psw_radio {
+  display: none;
+}
+.input_wrap_quality_psw .psw_radio_label {
+  font-weight: 500;
+  font-size: 18px;
+  cursor: pointer;
+}

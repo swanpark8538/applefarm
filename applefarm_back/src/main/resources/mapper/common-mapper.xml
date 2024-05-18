@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper  namespace="kr.or.iei.common.model.dao.CommonDao">
+
+	<select id="navIPhoneList" resultType="productCategory">
+		select distinct product_gen, product_model from IPHONE_TBL order by product_model desc
+	</select>
+		
+	<select id="navElseList" resultType="productCategory">
+		select distinct product_line, product_gen from MACBOOK_TBL
+		union all
+		select distinct product_line, replace(product_gen,'세대','') from IPAD_TBL
+		union all
+		select distinct product_line, product_gen from WATCH_TBL
+		union all
+		select distinct product_line, product_gen from AIRPODS_TBL
+		order by product_gen desc
+	</select>
+
+</mapper>

@@ -1,0 +1,39 @@
+/*이 css파일 수정하면 안 됩니다!!!*/
+
+/*ProductTab.js*/
+.productTab-wrap {
+  width: 100%;
+  margin: 80px auto;
+  display: flex;
+  align-items: center;
+}
+.productTab {
+  width: 100%;
+  border-bottom: 2px solid var(--line_01);
+}
+.productTab > li {
+  float: left;
+  height: 60px;
+  font-family: ns-b;
+  color: #333;
+  font-size: 20px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  border-width: 1px;
+  border-bottom-width: 0px;
+  border-style: solid;
+  border-color: #b5b5b5;
+  border-left-width: 0px;
+}
+.productTab > li:first-child {
+  border-left-width: 1px;
+}
+.productTab > li.active-productTab {
+  border: 2px solid var(--line_01);
+  border-bottom: none;
+  height: 62px;
+  margin-bottom: -2px;
+  background-color: #fff;
+}
+/*--ProductTab.js*/

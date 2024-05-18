@@ -1,0 +1,299 @@
+/*ProductMain.js*/
+.productMain {
+  display: flex;
+  flex-direction: column;
+}
+.productMain-content-wrap {
+  width: 100%;
+}
+.productMain-content-hide {
+  display: none;
+}
+/*--ProductMain.js--*/
+
+/*ProductCategory.js*/
+.productCategory-title {
+  font-size: 60px;
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+.productInsert-btn-wrap {
+  display: flex;
+  align-items: end;
+}
+.productInsert-btn {
+  padding: 9px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--main_01);
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: center;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+}
+.productCategory-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.productCategory-wrap-left {
+  width: 700px;
+  height: auto; /*sticky 쓸려면 부모요소에 높이 있어야함. 그래서 auto로 넣었음.*/
+}
+.productCategory-wrap-left > div {
+  width: 100%;
+  top: 350px; /*stkcky 사용시 top,bottom,left,right중 하나는 있어야.*/
+  position: sticky;
+}
+.productCategory-wrap-left .categoryImage {
+  width: 100%;
+  height: 600px;
+  object-fit: contain;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+/*
+<object-fit>
+-contain : 대체 콘텐츠의 가로세로비를 유지하면서, 요소의 콘텐츠 박스 내부에 들어가도록 크기를 맞춤 조절합니다. 콘텐츠가 콘텐츠 박스 크기에 맞도록 하면서도 가로세로비를 유지하게 되므로, 서로의 가로세로비가 일치하지 않으면 객체가 "레터박스"처럼 됩니다.
+-cover : 대체 콘텐츠의 가로세로비를 유지하면서, 요소 콘텐츠 박스를 가득 채웁니다. 서로의 가로세로비가 일치하지 않으면 객체 일부가 잘려나갑니다.
+-fill : 요소 콘텐츠 박스 크기에 맞춰 대체 콘텐츠의 크기를 조절합니다. 콘텐츠가 콘텐츠 박스를 가득 채웁니다. 서로의 가로세로비가 일치하지 않으면 콘텐츠가 늘어납니다.
+-none : 대체 콘텐츠의 크기를 조절하지 않습니다.
+-scale-down : none과 contain 중 대체 콘텐츠의 크기가 더 작아지는 값을 선택합니다.
+*/
+.productCategory-wrap-right {
+  flex-shrink: 0; /*화면 줄어들 시 0/1만큼 크기 축소 = 축소안함*/
+  width: 350px;
+}
+.category-option {
+  margin-bottom: 70px;
+}
+.category-option > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.category-option > div > .category-option-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.category-option > div > .category-option-select {
+  font-size: 15px;
+  line-height: 35px;
+}
+.quality-option-ul {
+  display: flex;
+  justify-content: space-around;
+}
+.quality-option-li {
+  width: 80px;
+}
+/*
+<flex-grow> : 여백 분배
+-분자 : 해당 태그에 걸린 flex-grow의 값
+-분모 : flex-grow를 준 것의 값들을 모두 합한 값
+-해당 태그가 할당받는 여백은 해당 태그의 분자 / 분모 값임
+-flex-grow 기본값 0 -> flex-grow 없을 경우 여백은 모든 컨텐츠의 가장 우측 컨텐츠의 우측에 몰림
+*/
+/*
+<flex-shrink> : 축소시 컨텐츠 줄어드는 정도 분배
+-분자 : 해당 태그에 걸린 flex-shrink의 값
+-분모 : flex-shrink를 준 것의 값들을 모두 합한 값
+-해당 태그가 축소되는 비율은 해당 태그의 분자 / 분모 값임
+-flex-shrink 기본값은 1이고, flex-wrap: wrap속성이 부여된 경우 적용되지 않음(flex-wrap 기본값 : nowrap)
+*/
+
+/*--ProductCategory.js--*/
+
+/*ProductSummary.js*/
+.productSummary-wrap {
+  width: 100%;
+}
+.productSummary-box {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.productSummary-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.productSummary-content {
+  font-size: 18px;
+  margin: 10px 0px;
+}
+.productSummary-content-detail {
+  font-size: 18px;
+  font-family: ns-l;
+}
+/*--ProductSummary.js*/
+
+/*ProductChart.js*/
+.productChart-wrap {
+  position: relative;
+}
+.productChart-chart {
+  width: 100%;
+  height: 500px;
+}
+.productChart-btns {
+  position: absolute;
+  right: 80px;
+  z-index: 20;
+}
+.productChart-btns > button {
+  margin-left: 10px;
+}
+.bottomTermArr {
+  bottom: -40px;
+  right: 50px;
+}
+
+/*--ProductChart.js*/
+
+/**/
+/*
+.apexcharts-toolbar {
+  display: none;
+}
+*/
+
+/* ProductMainList.js */
+.productMainList {
+  width: 1100px;
+  margin: 0 auto;
+}
+.productMainList-btn {
+  margin-bottom: 40px;
+}
+.productMainList-btn > button {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.productMainList-btn > button.gray {
+  background-color: #7d7e80;
+}
+.productMainList-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.productCard-wrap {
+  width: 250px;
+  margin-bottom: 40px;
+}
+.productCard-wrap > a {
+  text-decoration: none;
+  color: var(--gray_01);
+}
+.productCard-image {
+  width: 100%;
+  height: 230px;
+}
+.productCard-image > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 5px;
+}
+.productCard-desc > div {
+  width: 100%;
+  margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.productCard-title {
+  font-size: 16px;
+}
+.productCard-price {
+  font-size: 15px;
+  font-weight: 700;
+}
+.productCard-date {
+  font-size: 13px;
+}
+.productCard-likeCount > span {
+  font-size: 13px;
+  color: #868e96;
+}
+.productCard-likeCount > .like-image {
+  color: var(--main_02);
+}
+.productCard-likeCount > span:last-child {
+  color: var(--main_02);
+}
+
+/* --ProductMainList.js */
+
+/* RefundDelevery.js */
+
+.refundDelivery-wrap {
+  width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+.refundDelivery {
+  width: 100%;
+}
+.refundDelivery > table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.refundDelivery > table {
+  width: 100%;
+}
+.refundDelivery > table > thead > tr > th {
+  width: 20%;
+}
+.refundDelivery > table > thead > tr > th:last-child {
+  width: 40%;
+}
+.refundDelivery > table > thead > tr > th {
+  padding: 15px 0;
+  background-color: #f8f8f8;
+  font-weight: 600;
+  color: #222;
+  text-align: center;
+}
+.refundDelivery > table > tbody > tr > td {
+  padding: 15px 0px;
+  text-align: center;
+  color: #7d7e80;
+}
+.refundDelivery > table > thead > tr > th:not(:last-child) {
+  border-right: 1px solid #e3e5e8;
+}
+.refundDelivery > table > tbody > tr > td:not(:last-child) {
+  border-right: 1px solid #e3e5e8;
+}
+
+.refundDelivery > table > thead > tr > th {
+  border-top: 1px solid #e3e5e8;
+  border-bottom: 1px solid #e3e5e8;
+}
+.refundDelivery > table > tbody > tr > td {
+  border-top: 1px solid #e3e5e8;
+  border-bottom: 1px solid #e3e5e8;
+}
+.refundDelivery > table > tbody > tr > td > dt {
+  color: #222;
+  text-align: left;
+  padding-left: 20px;
+}
+.refundDelivery > table > tbody > tr > td > dd {
+  margin-inline-start: 20px;
+  text-align: left;
+  padding-left: 20px;
+}
+.refundDelivery > table > tbody > tr > td.refundDelivery-red {
+  color: var(--main_02);
+}

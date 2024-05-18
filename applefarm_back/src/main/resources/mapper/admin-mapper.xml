@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="kr.or.iei.admin.model.dao.AdminDao">
+
+	<select id="totalCount" resultType="int">
+		<choose>
+			<when test="reportType == 3">
+				select count(*) from refund_tbl
+			</when>
+			<otherwise>
+				select count(*) from refund_tbl where refund_status =
+				#{selectedValue}
+			</otherwise>
+		</choose>
+	</select>
+
+
+	<select id="selectRefundList" resultType="refund">
+		SELECT
+		R.REFUND_NO,
+		R.TRADE_NO,
+		R.PRODUCT_NO,
+		P.PRODUCT_THUMBNAIL, -- 제품 썸네일 추가
+		TO_CHAR(R.REFUND_DATE, 'YYYY-MM-DD') AS REFUND_DATE,
+		R.REFUND_REASON,
+		R.REFUND_STATUS,
+		TO_CHAR(T.TRADE_DATE, 'YYYY-MM-DD') AS TRADE_DATE,
+		SELLER.MEMBER_NICKNAME AS SELLER_NICKNAME,
+		BUYER.MEMBER_NICKNAME AS BUYER_NICKNAME
+		FROM
+		REFUND_TBL R
+		JOIN
+		TRADE_TBL T ON R.TRADE_NO = T.TRADE_NO
+		JOIN
+		MEMBER_TBL SELLER ON T.TRADE_SELLER = SELLER.MEMBER_NO
+		JOIN
+		MEMBER_TBL BUYER ON T.TRADE_BUYER = BUYER.MEMBER_NO
+		JOIN
+		PRODUCT_TBL P ON R.PRODUCT_NO = P.PRODUCT_NO -- 제품 테이블 조인
+		WHERE
+		(#{selectedValue} IN (0, 1, 2) AND R.REFUND_STATUS = #{selectedValue})
+		OR
+		(#{selectedValue} NOT IN (0, 1, 2))
+		ORDER BY
+		R.REFUND_NO DESC
+
+	</select>
+
+	<update id="updateConfirmRefund">
+		UPDATE REFUND_TBL
+		SET REFUND_STATUS = 2
+		WHERE REFUND_NO
+		= #{refundNo}
+
+	</update>
+
+	<update id="updateConfirmTrade">
+		UPDATE TRADE_TBL
+		SET TRADE_STATE = '환불'
+		WHERE TRADE_NO
+		= #{tradeNo}
+	</update>
+
+	<update id="updateRejectRefund">
+		update refund_tbl set refund_status = 1 where
+		refund_no =#{refundNo}
+	</update>
+
+	<update id="updateRejectTrade">
+		update trade_tbl set TRADE_STATE = '구매확정' where
+		trade_no =#{tradeNo}
+	</update>
+
+	<select id="productTotalCount" resultType="int">
+		SELECT COUNT(*) FROM
+		PRODUCT_TBL P
+		WHERE (TO_CHAR(P.PRODUCT_DATE, 'yyyy-mm-dd') BETWEEN
+		#{filterStartDate} AND
+		#{filterEndDate})
+		AND (
+		(#{selectedValue} IN
+		('IPHONE_TBL', 'MACBOOK_TBL', 'IPAD_TBL', 'AIRPODS_TBL',
+		'WATCH_TBL')
+		AND P.TABLE_NAME = #{selectedValue})
+		OR
+		(#{selectedValue} NOT IN
+		('IPHONE_TBL', 'MACBOOK_TBL', 'IPAD_TBL', 'AIRPODS_TBL',
+		'WATCH_TBL')
+		AND P.TABLE_NAME IN ('IPHONE_TBL', 'MACBOOK_TBL',
+		'IPAD_TBL',
+		'AIRPODS_TBL', 'WATCH_TBL'))
+		)
+	</select>
+
+
+
+
+	<select id="selectProductList" resultType="adminProduct">
+		SELECT *
+		FROM (
+		SELECT
+		rownum AS rnum, Q.*
+		FROM (
+		SELECT P.*, M.MEMBER_NAME
+		FROM PRODUCT_TBL P
+		JOIN MEMBER_TBL M ON P.MEMBER_NO = M.MEMBER_NO
+		WHERE
+		(TO_CHAR(P.PRODUCT_DATE, 'yyyy-mm-dd') BETWEEN #{filterStartDate} AND
+		#{filterEndDate})
+		AND (
+		(#{selectedValue} IN ('IPHONE_TBL',
+		'MACBOOK_TBL', 'IPAD_TBL', 'AIRPODS_TBL',
+		'WATCH_TBL') AND P.TABLE_NAME
+		= #{selectedValue})
+		OR
+		(#{selectedValue} NOT IN ('IPHONE_TBL',
+		'MACBOOK_TBL', 'IPAD_TBL', 'AIRPODS_TBL',
+		'WATCH_TBL') AND P.TABLE_NAME
+		IN ('IPHONE_TBL', 'MACBOOK_TBL',
+		'IPAD_TBL', 'AIRPODS_TBL',
+		'WATCH_TBL'))
+		)
+		) Q
+		)
+		WHERE rnum BETWEEN #{start} AND #{end}
+
+	</select>
+
+	<update id="updateHide">
+		UPDATE product_tbl
+		SET product_hide = 1
+		WHERE product_no IN
+		<foreach item="item" collection="list" open="(" separator=","
+			close=")">
+			#{item}
+		</foreach>
+	</update>
+
+	<update id="updateUnHide">
+		UPDATE product_tbl
+		set product_hide = 0
+		where product_no in
+		<foreach item="item" collection="list" open="(" separator=","
+			close=")">
+			#{item}
+		</foreach>
+	</update>
+
+	<select id="selectReportList" resultType="report">
+		SELECT
+		R.REPORT_NO,
+		R.REPORT_TYPE,
+		R.REPORT_TARGET,
+		R.REPORT_CONTENT,
+		TO_CHAR(R.REPORT_DATE,
+		'YYYY-MM-DD') AS REPORT_DATE,
+		R.REPORTING_MEMBER,
+		R.REPORTED_MEMBER,
+		R.REPORT_STATUS,
+		TO_CHAR(R.REPORT_ACTION_DATE, 'YYYY-MM-DD') AS
+		REPORT_ACTION_DATE,
+		RPT.MEMBER_NAME AS REPORTING_MEMBER_NAME,
+		RPD.MEMBER_NAME AS REPORTED_MEMBER_NAME
+		FROM
+		REPORT_TBL R
+		JOIN
+		MEMBER_TBL
+		RPT ON R.REPORTING_MEMBER = RPT.MEMBER_NO
+		JOIN
+		MEMBER_TBL RPD ON
+		R.REPORTED_MEMBER = RPD.MEMBER_NO
+		WHERE
+		(#{selectedValue} IN (0, 1, 2)
+		AND R.REPORT_STATUS = #{selectedValue})
+		OR
+		(#{selectedValue} NOT IN (0,
+		1, 2))
+		ORDER BY R.REPORT_NO DESC
+	</select>
+
+	<!-- 1. reportStatus 업데이트 -->
+	<update id="changeReportStatus">
+		UPDATE report_TBL
+		SET report_status = #{reportStatus}
+		WHERE report_no = #{reportNo}
+	</update>
+
+	<update id="hidePost">
+		<choose>
+			<when test="reportType == 1">   <!-- 상품테이블 -->
+				UPDATE product_tbl
+				SET PRODUCT_HIDE = 1
+				WHERE PRODUCT_NO
+				=
+				#{reportTarget}
+			</when>
+			<when test="reportType == 4">   <!-- 상품테이블 -->
+				UPDATE COMMENT_TBL
+				SET COMMENT_HIDE =1
+				WHERE COMMENT_NO
+				=
+				#{reportTarget}
+			</when>
+			<otherwise>
+				UPDATE board_tbl
+				SET BOARD_HIDE = 1
+				WHERE
+				BOARD_NO =
+				#{reportTarget}
+			</otherwise>
+		</choose>
+	</update>
+
+	<update id="unHidePost">
+		<choose>
+			<when test="reportType == 1">   <!-- 상품테이블 -->
+				UPDATE product_tbl
+				SET PRODUCT_HIDE = 0
+				WHERE PRODUCT_NO
+				=
+				#{reportTarget}
+			</when>
+			<when test="reportType == 4">
+				UPDATE COMMENT_TBL
+				SET COMMENT_HIDE = 0
+				WHERE COMMENT_NO
+				=
+				#{reportTarget}
+			</when>
+			<otherwise>
+				UPDATE board_tbl
+				SET BOARD_HIDE = 0
+				WHERE
+				BOARD_NO =
+				#{reportTarget}
+			</otherwise>
+		</choose>
+	</update>
+
+	<update id="blackMember">
+		update MEMBER_TBL
+		set MEMBER_GRADE = 3,
+		member_black_time = TO_CHAR(SYSDATE, 'yyyy-mm-dd
+		hh24:mi:ss')
+		where
+		MEMBER_NO = #{reportedMember}
+	</update>
+
+	<select id="reportTotalCount" resultType="int">
+		<choose>
+			<when test="reportType == 3">   <!-- 상품테이블 -->
+				select count(*) from report_tbl
+			</when>
+			<otherwise>
+				select count(*) from report_tbl where report_status =
+				#{selectedValue}
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="totalMemberCount" resultType="int">
+		select count(*) from
+		member_tbl
+	</select>
+
+	<select id="periodMemberCount" resultType="int">
+		SELECT COUNT(*) FROM
+		MEMBER_TBL WHERE TO_CHAR(ENROLL_DATE, 'yyyy-mm-dd') BETWEEN
+		#{filterStartDate} AND #{filterEndDate}
+	</select>
+
+	<select id="periodTradeCount" resultType="int">
+		select count(*) from
+		trade_tbl where to_char(TRADE_DATE, 'YYYY-MM-DD') BETWEEN
+		#{filterStartDate} AND #{filterEndDate}
+	</select>
+
+
+	<select id="periodTradeMoney" resultType="java.lang.Integer">
+		select
+		coalesce(sum(trade_price),0)
+		from trade_tbl where to_char(trade_date,
+		'yyyy-mm-dd') between
+		#{filterStartDate} and #{filterEndDate}
+	</select>
+
+
+	<select id="enrollDateCount" resultType="dashboard">
+		SELECT ROWNUM AS rnum,
+		enroll_date, member_count
+		FROM (
+		SELECT TRUNC(enroll_date) AS
+		enroll_date, COUNT(*) AS member_count
+		FROM member_tbl
+		WHERE
+		TRUNC(enroll_date) BETWEEN #{filterStartDate} AND #{filterEndDate}
+		GROUP BY TRUNC(enroll_date)
+		ORDER BY TRUNC(enroll_date)
+		)
+	</select>
+
+	<select id="tradeMoneySum" resultType="dashboard">
+		SELECT
+		TRADE_DATE,
+		TRADE_PRICE,
+		SUM(TRADE_PRICE) OVER (ORDER BY TRADE_DATE) AS
+		CUMULATIVE_TRADE_PRICE
+		FROM (
+		SELECT
+		TRUNC(TRADE_DATE) AS TRADE_DATE,
+		SUM(TRADE_PRICE) AS TRADE_PRICE
+		FROM
+		TRADE_TBL
+		WHERE
+		TRUNC(TRADE_DATE)
+		BETWEEN #{filterStartDate} AND #{filterEndDate}
+		GROUP BY
+		TRUNC(TRADE_DATE)
+		ORDER BY
+		TRUNC(TRADE_DATE)
+		)
+	</select>
+
+	<select id="topFiveSellerRank" resultType="dashboard">
+		SELECT
+		m.member_nickname as
+		seller_nickname, SUM(t.trade_price) AS
+		seller_trade_price
+		FROM (
+		SELECT trade_seller, trade_price
+		FROM trade_tbl
+		WHERE trade_date BETWEEN #{filterStartDate} AND #{filterEndDate}
+		) t
+		INNER JOIN member_tbl m ON t.trade_seller = m.member_no
+		GROUP BY
+		m.member_nickname
+		ORDER BY seller_trade_price DESC
+	</select>
+
+	<select id="topFiveBuyerRank" resultType="dashboard">
+		SELECT
+		m.member_nickname AS buyer_nickname, SUM(t.trade_price) AS
+		buyer_trade_price
+		FROM (
+		SELECT trade_buyer, trade_price
+		FROM trade_tbl
+		WHERE trade_date BETWEEN #{filterStartDate} AND #{filterEndDate}
+		) t
+		INNER JOIN member_tbl m ON t.trade_buyer = m.member_no
+		GROUP BY
+		m.member_nickname
+		ORDER BY buyer_trade_price DESC
+	</select>
+
+	<select id="tradeLog" resultType="dashboard">
+		SELECT
+		T.TRADE_NO,
+		TS.MEMBER_NICKNAME AS SELLER_NICKNAME,
+		TB.MEMBER_NICKNAME AS
+		BUYER_NICKNAME,
+		T.PRODUCT_NO,
+		TO_CHAR(T.TRADE_DATE,
+		'YYYY-MM-DD') AS
+		TRADE_DATE,
+		T.TRADE_PRICE,
+		T.TRADE_STATE,
+		T.ZIPCODE,
+		T.ADDRESS,
+		T.ADDRESS_DETAIL
+		FROM
+		TRADE_TBL T
+		LEFT JOIN
+		MEMBER_TBL TS ON
+		T.TRADE_SELLER = TS.MEMBER_NO
+		LEFT JOIN
+		MEMBER_TBL TB ON T.TRADE_BUYER =
+		TB.MEMBER_NO
+		WHERE
+		T.TRADE_DATE BETWEEN #{filterStartDate} AND
+		#{filterEndDate}
+		ORDER BY
+		T.TRADE_DATE DESC
+	</select>
+
+	<select id="selectChatRoomList" resultType="chatroom">
+		SELECT * FROM
+		chat_room_tbl WHERE participant1 = #{memberId} OR participant2
+		=
+		#{memberId} ORDER BY room_create_time DESC
+	</select>
+
+
+
+</mapper>

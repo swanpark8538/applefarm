@@ -1,0 +1,1954 @@
+/* 기본 색상 */
+:root {
+  /* main color */
+  /* --main_01:#4389BA; */
+  --main_01: #0267f3;
+  --main_02: #ff3d00;
+  --main_03: #2f6082;
+  --main_04: #8f8f8f;
+  --main_05: #1065dc;
+
+  /* bg color */
+  --bg_01: #ebf7ff;
+  --bg_02: #ffeaea;
+  --bg_03: #5e5e5ef8;
+
+  /*black color */
+  --black_01: black;
+
+  /* gray color */
+  --gray_01: #222222;
+  --gray_02: #555555;
+  --gray_03: #717171;
+  --gray_04: #8f8f8f;
+  --gray_05: #b7b7b7;
+  --gray_06: #d6d6d6;
+  --gray_07: #efefef;
+  --gray_08: #ffffff;
+
+  /* line color */
+  --line_01: #222222;
+  --line_02: #d6d6d6;
+  --line_03: #eaeced;
+  --line_04: #f6f6f6;
+  --line_05: #f8f9fa;
+}
+
+/* 좋아요 */
+
+.mypage-current-wrap {
+  color: #1e1e1e;
+  width: 900px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.mypage-wrap a {
+  color: #1e1e1e;
+}
+.mypage-current-title {
+  padding: 0px 0px 15px 0px;
+  color: #222222;
+  font-family: ns-b;
+}
+.like-icon {
+  font-size: 40px;
+  color: #0267f3;
+  padding: 0px 10px;
+  text-shadow: 0px 0px 10px blue;
+  cursor: default;
+}
+.member-like-tbl-box {
+  display: flex;
+  justify-content: center;
+}
+
+.member-like-tbl-box table {
+  width: 100%;
+  padding-bottom: 100px;
+  font-size: 13px;
+}
+
+.member-like-tbl-box > table {
+  border-spacing: 0;
+}
+.member-like-tbl-box > table > thead > tr > th {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.member-like-tbl-box > table > tbody > tr > td:not(.likeName-td) {
+  text-align: center;
+}
+.member-like-tbl-box > table > tbody > tr > td {
+  padding: 20px 5px;
+}
+
+.like-cancel-icon {
+  color: #da1d1d;
+  cursor: pointer;
+}
+.like-cancel-icon:hover {
+  text-shadow: 0px 0px 10px red;
+}
+.sold-out-btn-box > button {
+  opacity: 0.5;
+  cursor: default;
+}
+.purchase-go-btn-box > button {
+  background-color: #0071e3;
+  cursor: pointer;
+}
+.member-like-tbl-box button {
+  font-size: 13px;
+  font-family: ns-r;
+  font-weight: 550;
+}
+.purchase-go-btn-box > button:hover {
+  box-shadow: 0px 0px 5px blue;
+}
+.no-like-list {
+  padding: 100px;
+  text-align: center;
+}
+.wish-icon {
+  font-size: 25px;
+}
+.member-like-img-box {
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+}
+.member-like-img-box > div > img {
+  width: 100px;
+  height: 100px;
+}
+.sold-out-img-box {
+  position: relative;
+}
+.sold-out-first-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.6;
+}
+.sold-out-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+}
+
+/* 마이페이지 */
+
+.mypage-title {
+  font-size: 26px;
+}
+
+.sideMenu-title {
+  font-size: 20px;
+  padding-top: 40px;
+  font-weight: bold;
+  color: #1e1e1e;
+}
+
+.sideMenu-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.mypage-wrap {
+  display: flex;
+  padding-bottom: 160px;
+}
+.mypage-content {
+  /*flex: 1;*/
+}
+
+/* 주소록 */
+.address-list-wrap {
+  font-size: 15px;
+}
+.basic-address-btn {
+  position: absolute;
+  right: 5px;
+  bottom: 0px;
+}
+.address-title {
+  position: relative;
+}
+.address-btn {
+  padding: 7px 15px;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+.address-btn:hover {
+  /*color: #0267f3;*/
+  text-shadow: 0px 0px 0px black;
+}
+.non-address {
+  padding: 100px;
+}
+.non-address > div {
+  text-align: center;
+  color: #8f8f8f;
+  font-size: 15px;
+  padding: 2px;
+}
+.non-address > div:nth-child(3) {
+  padding-top: 10px;
+}
+.address-info-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0px 15px 0px;
+  padding: 25px;
+  border-radius: 18px;
+}
+.address-info-wrap:nth-child(1) {
+  background-color: #0071e3;
+  /*#fafafc,#0071e3,0066cc,0267f3*/
+  color: #ffffff;
+  padding: 30px 25px;
+  font-weight: ns-b;
+}
+.address-info-wrap:not(:nth-child(1)) {
+  border: 1px solid rgba(204, 204, 204, 0.1);
+  background-color: #fafafc;
+}
+.address-info > div {
+  padding: 2px 0px;
+}
+.address-list-btn {
+  margin-left: 5px;
+}
+.default-address-mark {
+  display: inline-block;
+  background-color: #fafafc;
+  color: #1e1e1e;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin-left: 15px;
+  font-weight: 600;
+}
+.address-info-name {
+  display: flex;
+  align-items: center;
+}
+.address-info-name > span:nth-child(1) {
+  font-family: ns-black;
+}
+.address-info-address > span {
+  padding-right: 5px;
+}
+
+/*결제화면*/
+.payment-wrap {
+  padding: 0px;
+  padding-bottom: 150px;
+  font-size: 15px;
+}
+.payment-title {
+  text-align: center;
+  padding: 0px 0px 15px 0px;
+  font-size: 19px;
+  font-family: ns-b;
+}
+.payment-content > div {
+  margin: 30px auto;
+  width: 85%;
+}
+.payment-content > div:not(:nth-child(n + 3)) {
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #fafafc;
+}
+.payment-product,
+.payment-delivery {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.payment-product-detail > div:first-child {
+  padding-bottom: 5px;
+}
+.payment-product-detail > div:first-child > span {
+  font-family: ns-b;
+}
+.payment-product-detail > div:nth-child(2) > span,
+.payment-product > div:last-child > div {
+  font-family: ns-b;
+  padding-right: 10px;
+}
+.payment-product > div {
+  font-size: 17px;
+}
+.payment-product > div:nth-child(2) {
+  flex: 1;
+}
+.payment-img-box > img {
+  width: 200px;
+  height: 200px;
+  margin-right: 15px;
+}
+.payment-sub-title {
+  font-size: 17px;
+  font-family: ns-b;
+  padding: 0px 0px 10px 10px;
+}
+.payment-delivery-detail > div:last-child {
+  padding-right: 10px;
+}
+.payment-delivery-detail > table > tbody > tr > td:first-child {
+  padding-right: 40px;
+}
+.payment-delivery-detail > table > tbody > tr > td {
+  padding: 5px 0px;
+}
+.payment-delivery-detail > table {
+  border-spacing: 5px;
+}
+/*
+.payment-delivery-detail
+  > table
+  > tbody
+  > tr:last-child
+  > td:not(:first-child) {
+
+  padding-right: 5px;
+}*/
+.delivery-address-btn {
+  border-radius: 10px;
+  padding: 10px 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-right: 10px;
+}
+
+.delivery-address-btn:active {
+  background-color: #0071e3;
+  color: white;
+}
+.payment-purchase-btn-box {
+  border-top: 1px solid #ccc;
+  padding-top: 40px;
+  /*
+  display: flex;
+  justify-content: center;*/
+  overflow: hidden;
+}
+.payment-purchase-btn {
+  color: white;
+  background-color: #0071e3;
+  border: none;
+  padding: 17px 30px;
+  font-size: 17px;
+  border-radius: 10px;
+  width: 40%;
+  float: right;
+}
+.payment-purchase-btn:disabled {
+  background-color: var(--gray_06);
+}
+.payment-agree-message {
+  display: flex;
+  align-items: center;
+}
+.payment-agree-message > input {
+  width: 16px;
+  height: 16px;
+  margin: 0px 10px;
+}
+.payment-agree-message > label {
+  color: var(--gray_02);
+}
+.payment-sub-title {
+  position: relative;
+}
+.payment-adress-plus {
+  position: absolute;
+  font-size: 14px;
+  color: #0071e3;
+  font-weight: 550;
+  bottom: 0;
+  right: 20px;
+  cursor: pointer;
+}
+.payment-delivery-non {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+}
+
+.payment-address-list {
+  margin-top: 10px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+.payment-address-list::-webkit-scrollbar {
+  width: 5px;
+}
+.payment-address-list::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: var(--gray_03);
+  border-radius: 10px;
+}
+.payment-address-list::-webkit-scrollbar-track {
+  background: var(--gray_06);
+}
+
+.address-item {
+  border: 1px solid #ccc;
+  background-color: #fafafc;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
+}
+.address-item > label {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+}
+.payment-info-address {
+  padding: 10px;
+}
+.payment-info-address > div {
+  padding: 2.5px 0px;
+}
+.address-item-radio {
+  display: none;
+}
+.address-item-wrap > input:checked + div {
+  border: 2px solid #0071e3;
+}
+/*
+.address-select {
+  border: 1.5px solid #0071e3;
+}
+*/
+.delivery-request-btn-box {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.delivery-request-btn {
+  border-radius: 10px;
+  padding: 15px 15px;
+  width: 98%;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  background-color: #fafafc;
+  text-align: left;
+  font-size: 14px;
+}
+.delivery-request-icon {
+  position: absolute;
+  right: 15px;
+  bottom: 13px;
+  color: var(--black_01);
+}
+
+/*결제완료*/
+.completePayment-wrap {
+  padding: 100px;
+  text-align: center;
+}
+.completePayment-content {
+  padding: 10px 0px;
+}
+.completePayment-wrap img {
+  width: 50px;
+  height: 50px;
+}
+.completePayment-title {
+  color: #1c0303;
+}
+.completePayment-message {
+  padding: 40px;
+}
+.completePayment-btn-box {
+  padding: 25px;
+}
+.completePayment-btn-box > button {
+  font-size: 14px;
+  padding: 10px 30px;
+  border-radius: 8px;
+  margin: 0px 30px;
+  background-color: var(--gray_07);
+  border: none;
+  color: #1c0303;
+  box-shadow: 1px 3px 0 rgb(0, 0, 0, 0.5);
+}
+.completePayment-btn-box > button:active {
+  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+  position: relative;
+  top: 2px;
+}
+.completePayment-btn-box > button:hover {
+}
+
+/*거래상세내역*/
+.purchase-detail-content > div:not(:first-child) {
+  padding-bottom: 100px;
+}
+.trade-number-info {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+  padding-left: 15px;
+}
+.trade-number-info > span {
+  font-size: 14px;
+}
+.trade-number-info > span:nth-child(2n) {
+  margin: 0px 30px 0px 10px;
+  font-family: ns-b;
+}
+.trade-img-box > img {
+  width: 150px;
+  height: 150px;
+}
+.trade-product-info {
+  display: flex;
+  align-items: center;
+}
+.trade-product-info > div:nth-child(2) {
+  flex: 1;
+}
+.trade-product-info > div {
+  padding: 20px;
+  font-family: ns-b;
+}
+.trade-detail-info > div {
+  border-bottom: 1px solid black;
+  padding-bottom: 10px;
+  font-family: ns-b;
+  padding-left: 15px;
+}
+..trade-detail-info > table > tbody > tr {
+  border-bottom: 1px solid #ccc;
+}
+.trade-detail-info > table > tbody > tr > td {
+  padding: 15px;
+  padding-right: 45px;
+  font-size: 15px;
+}
+.trade-detail-info > table > tbody > tr > td:nth-child(2) {
+  font-family: ns-b;
+}
+.trade-address-info > span {
+  font-family: ns-b;
+  padding: 0px 5px 0px 0px;
+}
+.history-go-btn {
+  text-align: center;
+  padding-top: 20px;
+}
+.history-go-btn > a > button {
+  padding: 10px 30px;
+}
+.trade-member-account {
+  font-family: ns-b;
+}
+/*구매내역*/
+.history-menu-wrap > ul {
+  display: flex;
+  width: 100%;
+  margin: 0px;
+}
+.history-menu {
+  /*li*/
+  width: calc(100% / 3);
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(167, 167, 167, 0.6);
+  padding: 0px 0px 18px 0px;
+  font-size: 15px;
+}
+.history-menu-focus {
+  border-bottom: 2px solid #000000;
+}
+.history-date-select-wrap {
+  border-bottom: 1px solid rgba(167, 167, 167, 0.6);
+  padding: 10px;
+  margin-bottom: 15px;
+  /*background-color: #fcfcfc;*/
+}
+.css-10o2lyd-MuiStack-root {
+  align-items: center;
+  justify-content: center;
+}
+.history-date-select-btn-box > button {
+  padding: 7px 15px;
+  margin: 0px 7px;
+  font-size: 13px;
+  border: 1px solid rgba(167, 167, 167, 0.6);
+  border-radius: 4px;
+}
+.date-select-btn {
+  background-color: white;
+}
+.date-select-active {
+  background-color: #c7deff;
+}
+.css-19qh8xo-MuiInputBase-input-MuiOutlinedInput-input {
+  width: 150px;
+}
+.date-select-go-btn {
+  background-color: #c7deff;
+  padding: 6px 6px;
+  font-size: 13px;
+  border: 1px solid rgba(167, 167, 167, 0.6);
+}
+.history-product-status-btn-box {
+  position: relative;
+  width: 100px;
+}
+.history-product-status-btn-box > span {
+  position: absolute;
+  bottom: 8px;
+  right: 4px;
+  color: #1e1e1e;
+  cursor: pointer;
+}
+.history-product-status-btn-box > button {
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ffffff;
+}
+.purchase-history-content table {
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  border-collapse: collapse;
+}
+.purchase-history-content table > thead > tr > td {
+  font-size: 12px;
+  font-family: ns-b;
+  width: 130px;
+  padding-bottom: 5px;
+}
+.purchase-history-content > table > tbody > tr {
+  border-top: 1px solid #ccc; /*안들어감*/
+}
+.purchase-history-content table > tbody > tr > td {
+  padding: 25px 0px;
+}
+.purchase-history-content table > tbody > tr > td:nth-child(2) {
+  text-align: left;
+}
+.non-list > td > div {
+  padding: 150px 0px;
+  font-size: 13px;
+}
+.sold-out-color {
+  color: red;
+  display: block;
+  text-decoration-line: underline;
+  font-size: 14px;
+}
+.trade-book-status {
+  color: var(--main_02);
+}
+.trade-book-status-badge {
+  color: #0071e3;
+  margin-left: 10px;
+  font-size: 12px;
+  background-color: var(--gray_07);
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+.purchase-product-summary {
+  font-size: 12px;
+  color: var(--gray_04);
+  display: flex;
+  align-items: center;
+}
+.purchase-history-content > .report-message {
+  font-size: 12px;
+  color: var(--gray_05);
+  padding-bottom: 20px;
+}
+.sm-f {
+  font-size: 13px;
+}
+.purchase-date {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 15px;
+  color: var(--gray_05);
+}
+.go-purchase {
+  color: var(--main_02);
+}
+.purchase-history-content a:hover {
+  text-decoration-line: underline;
+}
+.purcase-date-wrap {
+  position: relative;
+  width: 140px;
+}
+.purchase-history-content table > tbody > tr > td > button {
+  border: 1px solid #e5e5e5;
+  background-color: #ffffff;
+  padding: 5px 8px;
+  margin: 5px 10px;
+}
+.purchase-history-content
+  table
+  > tbody
+  > tr
+  > td
+  > button:hover:not(:disabled) {
+  border-color: var(--bg_03);
+}
+.purchase-history-content table > thead > tr > td:last-child {
+  width: 120px;
+}
+.lsr-cb {
+  color: #0071e3;
+}
+.lsr-cr {
+  color: var(--main_02);
+}
+.openInvice:hover {
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+/* 사이드메뉴 */
+.sideMenu > ul > li > a {
+  color: #b7b7b7;
+}
+
+.sideMenu > ul > li {
+  padding: 3px 0;
+}
+
+.sideMenu > ul > li > a:hover {
+  color: #0267f3;
+  font-weight: 900;
+}
+
+.sideMenu > ul > li > a.active-side {
+  color: #0267f3;
+  font-weight: 900;
+}
+
+.mypage-sideMenu {
+  box-sizing: border-box;
+  width: 200px;
+}
+/* 회원가입 */
+
+.join-wrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.input-with-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-with-btn input {
+  min-width: 510px;
+}
+
+.input-with-btn button {
+  min-width: 110px;
+}
+
+.join-title {
+  padding-bottom: 40px;
+  font-size: 26px;
+}
+
+.join-btn button {
+  width: 350px;
+}
+
+.join-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.join-input-wrap {
+  padding: 20px 0;
+}
+
+.gender-title {
+  padding-bottom: 13px;
+}
+
+.join-gender {
+  padding-top: 17px;
+  padding-bottom: 15px;
+}
+
+.gender-box {
+  padding: 17px 32px;
+  padding-bottom: 25px;
+  border: 1px solid #b7b7b7;
+  border-radius: 15px;
+}
+
+.join-gender label {
+  padding: 0 15px;
+}
+
+.bank-input-wrap {
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 0 1px #b7b7b7;
+  max-height: 330px;
+  min-height: 330px;
+}
+
+.bank-input-wrap > .label {
+  padding-bottom: 15px;
+}
+.bank-input-wrap select {
+  width: 560px;
+
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #b7b7b7;
+}
+
+.little-text {
+  font-size: 12px;
+  color: #8f8f8f;
+}
+
+.join-btn {
+  padding: 30px 0;
+}
+
+.bank-title {
+  padding: 10px 0;
+}
+
+.input-wrap input::placeholder {
+  font-size: 14px;
+  color: #b7b7b7;
+}
+
+.check-msg {
+  font-size: 13.5px;
+  color: #f44336;
+}
+
+/*모달*/
+
+.agree-modal {
+  padding-top: 30px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.agree-icon {
+  position: relative; /*자기자신을 기준으로*/
+  top: -26px;
+  left: 303px;
+  font-size: 30px;
+  color: #1e1e1e;
+}
+
+.modal-close {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-btn {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: #0267f3;
+  color: #f6f6f6;
+  font-weight: bold;
+}
+
+.agree-icon:hover {
+  cursor: pointer;
+}
+
+/*로그인*/
+
+.login-wrap {
+  width: 430px;
+  padding: 25px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.btn-box {
+  display: flex;
+}
+.login-search-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.login-search-box > .findInfo {
+  transform: rotate(90deg);
+  color: #b7b7b7;
+}
+
+.login-search-box > span {
+  color: #8f8f8f;
+}
+
+.login-search-box a {
+  color: #8f8f8f;
+}
+
+.findId:hover,
+.findPw:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.login-search-box a:hover {
+  text-decoration: underline;
+}
+
+#login-btn {
+  padding: 13px 65px;
+  background-color: #0267f3;
+}
+
+.login-btn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.login-input input::placeholder {
+  font-size: 14px;
+  color: #b7b7b7;
+}
+
+/*로그인 정보*/
+.info-input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px; /* 필드 간격 */
+  border: 1px solid #ccc; /* 테두리 스타일링 */
+  font-size: 1rem; /* 텍스트 크기 */
+}
+
+.change-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #0267f3;
+  border-radius: 5px;
+
+  color: white;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.saveBtn-box {
+  position: relative;
+  left: 250px;
+  bottom: 20px;
+}
+
+.saveBtn-box2 {
+  position: relative;
+  left: 250px;
+  bottom: -13px;
+}
+
+.saveBtn-box3 {
+  position: relative;
+  left: 250px;
+  bottom: -13px;
+}
+.memberInfo-change-btn {
+  position: relative;
+  bottom: 53px;
+  right: 73px;
+}
+
+.delete-btn {
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  color: #bfbfbf;
+}
+.delete-btn:hover {
+  text-decoration: underline;
+}
+
+.memberInfo-emailBtn {
+  position: relative;
+  bottom: 55px;
+  right: 50px;
+}
+
+.memberInfo-confirmBtn {
+  position: relative;
+  bottom: 53px;
+  right: 71px;
+}
+
+.memberInfo-CodeBtn {
+  position: relative;
+  bottom: 50px;
+  right: 70px;
+}
+.cancel-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #e5e5e5; /* 취소 버튼 색상 */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+.input-change-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+.reg-text {
+  position: relative;
+  top: -10px;
+
+  color: red;
+  font-size: 12px;
+}
+
+.memberInfo-mini-title {
+  padding-bottom: 15px;
+}
+
+.reg-text1 {
+  position: relative;
+  top: -50px;
+  color: #da1d1d;
+  width: 200px;
+  font-size: 12px;
+}
+
+/*회원탈퇴*/
+
+.checkbox-title {
+  font-weight: bold;
+}
+.content-wrap {
+  border: 1px solid #b7b7b7;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.delete-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.delete-member-cancel-btn {
+  padding: 20px;
+  border: 1px solid #b7b7b7;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.delete-member-btn {
+  padding: 20px;
+  border: 1px solid #b7b7b7;
+  border-radius: 10px;
+  background-color: white;
+  color: #b7b7b7;
+}
+
+.delete-btn-box {
+  padding: 15px;
+}
+
+.checkbox-title {
+  padding: 10px;
+}
+
+.checkbox-box {
+  padding: 10px 0px;
+}
+
+.content-title {
+  padding: 30px;
+  font-size: 26px;
+}
+
+.all-checked-box {
+  position: relative;
+  left: 20px;
+}
+
+/*판매자 등급*/
+
+.sellerGrade-title {
+  font-weight: bold;
+  font-size: 18px;
+  padding-top: 30px;
+  margin-bottom: 20px;
+}
+
+.mypage-content-sellerGrade {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  padding-top: 30px;
+}
+
+.sellerGrade-wrap {
+  position: relative;
+  left: 108px;
+  justify-content: center;
+  font-size: 20px;
+  max-width: 300px;
+  color: white;
+  background-color: #1e1e1e;
+  border: 1px solid #1e1e1e;
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.sellerGrade-box1 {
+  padding-right: 20px;
+}
+
+.grade-data {
+  display: flex;
+  justify-content: center;
+}
+
+.grade-img-box {
+  max-width: 50px;
+}
+.grade-img {
+  width: 630px;
+  position: relative;
+  right: 49px;
+}
+
+.grade3,
+.grade2,
+.grade1 {
+  padding: 50px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.charge {
+  font-weight: bold;
+  color: #b7b7b7;
+}
+
+.total-amount {
+  font-weight: bold;
+  color: #b7b7b7;
+}
+
+.grade-info-box {
+  position: relative;
+  bottom: 80px;
+  left: 65px;
+}
+
+.guide-title {
+  font-weight: bold;
+}
+.guide-content-wrap {
+  position: relative;
+  left: 90px;
+}
+.guide-content-wrap ul li {
+  list-style-type: disc;
+  color: #b7b7b7;
+  font-size: 13px;
+}
+
+.grade-info-text {
+  font-weight: bold;
+}
+
+/*판매자 정산 계좌*/
+
+.account-title {
+  font-weight: bold;
+  font-size: 18px;
+  padding-bottom: 25px;
+}
+
+.mypage-accountNumber-wrap {
+  flex-direction: column;
+  display: flex;
+  width: 1000px;
+  padding-top: 30px;
+}
+
+.add-accountNumber {
+  padding: 20px;
+  border-radius: 10px;
+  width: 600px;
+}
+
+.input-form {
+  width: 500px;
+}
+
+.accountNumber-saveBtn {
+  margin-right: 10px;
+  border-radius: 7px;
+  padding: 10px;
+  width: 50px;
+  border: none;
+  color: white;
+  background-color: #0071e3;
+}
+
+.accountNumber-closeBtn {
+  border-radius: 7px;
+  padding: 10px;
+  width: 50px;
+  border: none;
+  color: white;
+  background-color: #b7b7b7;
+}
+
+.accountBtn-box {
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.reg-msg-account {
+  position: relative;
+  bottom: 15px;
+  font-size: 13px;
+  color: #b7b7b7;
+  padding-left: 10px;
+}
+
+.add-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+
+  background-color: #0071e3;
+  color: white;
+}
+
+.account-info-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 300px;
+  padding: 20px;
+  border: 1px solid #b7b7b7;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.account-info {
+  padding-bottom: 40px;
+  font-size: 18px;
+}
+
+.account-text {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.account-status-msg {
+  padding: 30px;
+  color: #b7b7b7;
+}
+
+.delete-account-btn {
+  border: none;
+  background-color: #b7b7b7;
+  color: white;
+
+  padding: 12px;
+  border-radius: 7%;
+}
+
+.delete-btn-box {
+  position: relative;
+  top: 40px;
+}
+
+.account-status-msg {
+  position: relative;
+  bottom: 25px;
+}
+.add-accountNumber > div {
+  margin-top: 10px; /* 각 요소의 위쪽 여백 설정 */
+  margin-bottom: 20px; /* 각 요소의 아래쪽 여백 설정 */
+}
+
+.add-accountNumber > div:first-child {
+  padding-top: 90px;
+}
+
+.bankName-text {
+  position: relative;
+  top: 15px;
+}
+
+/*아이디 찾기, 비밀번호 찾기*/
+
+.findId-content-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-title {
+  font-size: 18px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.findId-info {
+  font-size: 14px;
+  color: #717171;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.findId-input-box {
+  padding-top: 30px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.findId-email {
+  padding-right: 10px;
+  font-size: 14.5px;
+  position: relative;
+  top: 8px;
+}
+
+.findId-email-input {
+  margin-right: 10px;
+  border: none;
+  border-bottom: 1px solid #b7b7b7;
+  width: 280px;
+}
+
+.find-email-btn {
+  border: 1px solid #b7b7b7;
+  background-color: white;
+  color: #b7b7b7;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.findId-reg-text {
+  font-size: 13px;
+  color: #b7b7b7;
+  position: relative;
+  bottom: 70px;
+  left: 310px;
+}
+
+.findPw-content-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.findPw-info {
+  font-size: 14px;
+  color: #717171;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.findPw-input-box {
+  padding-top: 30px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.findPw-verif-input-box {
+  padding-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 80px;
+}
+
+.findPw-email {
+  padding-right: 10px;
+  font-size: 14.5px;
+  position: relative;
+  top: 12px;
+}
+
+.findPw-verif {
+  padding-right: 24px;
+  font-size: 14.5px;
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+.findPw-email-input {
+  margin-right: 10px;
+  border: none;
+  border-bottom: 1px solid #b7b7b7;
+  width: 280px;
+}
+
+.findPw-verif-input {
+  margin-right: 10px;
+  border: none;
+  border-bottom: 1px solid #b7b7b7;
+  width: 280px;
+}
+
+.findPw-reg-text {
+  font-size: 13px;
+  color: #b7b7b7;
+  position: relative;
+  top: 4px;
+  left: 314px;
+}
+
+.resetPw-info {
+  font-size: 14px;
+  color: #717171;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.resetPw-input-box {
+  padding-top: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.chkResetPw-input-box {
+  padding-top: 30px;
+  padding-bottom: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  right: 13px;
+}
+
+.resetPw-text {
+  padding-right: 24px;
+  font-size: 14.5px;
+  position: relative;
+  top: 0.5px;
+  left: 12px;
+}
+
+.chkResetPw-text {
+  padding-right: 24px;
+  font-size: 14.5px;
+  position: relative;
+  top: 1px;
+  left: 13px;
+}
+
+.resetPw-input,
+.chkResetPw-input {
+  margin-right: 10px;
+  border: none;
+  border-bottom: 1px solid #b7b7b7;
+  width: 280px;
+}
+
+.resetPw-reg-text {
+  font-size: 13px;
+  color: #b7b7b7;
+  position: relative;
+  bottom: 55px;
+  left: 348px;
+}
+
+.resetPw-btn-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.changePw-btn {
+  padding: 13px;
+  border: none;
+  background-color: #0267f3;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+}
+
+.changePw-close-btn {
+  padding: 13px;
+  width: 75px;
+
+  border: none;
+  background-color: #0267f3;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+}
+
+/*판매 내역*/
+
+.sales-pTitle {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 13px;
+  color: #8f8f8f;
+}
+.sales-summary {
+  color: #1c0303 !important;
+}
+.salesHistory-content {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+.salesHistory-content th,
+.salesHistory-content td {
+  padding: 10px;
+  text-align: center;
+}
+
+.salesDate {
+  border-bottom: none;
+  position: relative;
+  top: 6px;
+  color: #1e1e1e;
+  font-size: 13px;
+}
+
+.salesHistory-content td:not(.salesDate) {
+  border-bottom: 0.3px solid #bfbfbf;
+}
+
+.salesBtn-box td {
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.salesImg {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.sales-info {
+  position: relative;
+  bottom: 13px;
+  font-size: 14px;
+  color: #1e1e1e;
+}
+
+.sales-title {
+  font-size: 15px;
+}
+
+.sales-more-btn {
+  position: relative;
+  left: 48%;
+  top: 20px;
+}
+.sales-more-btn button {
+  border: none;
+  background-color: transparent;
+  color: #8f8f8f;
+}
+.sales-more-btn button:hover {
+  text-decoration: underline;
+}
+
+.allSales-btn button {
+  padding: 3px;
+  background-color: transparent;
+  border: 1px solid #bfbfbf;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 13px;
+  position: relative;
+  left: 45px;
+}
+.allSales-btn button span:first-child {
+  position: relative;
+  left: 6px;
+}
+.allSales-btn button span:last-child {
+  position: relative;
+  top: 1px;
+  right: -1px;
+}
+.sales-btn button {
+  border: none;
+  padding-left: 10px;
+  background-color: transparent;
+  color: #8f8f8f;
+}
+
+.sales-btn button:hover {
+  text-decoration: underline;
+}
+
+.sales-price-input::-webkit-inner-spin-button {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+.sales-price-input {
+  border: none;
+  border-bottom: 1px solid #bfbfbf;
+  width: 180px;
+  text-align: right;
+}
+.sales-price-input::placeholder {
+  text-align: left;
+  font-size: 12px;
+  color: #b7b7b7;
+}
+
+.sales-change-title {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+.sales-change-box {
+  display: flex;
+  padding-top: 35px;
+  justify-content: center;
+}
+.sales-change-box > span {
+  padding-left: 5px;
+}
+
+.sales-change-text {
+  padding-right: 10px;
+}
+
+.sales-change-btn-box {
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+  gap: 15px; /*간격*/
+}
+.sales-change-btn-box button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #1e1e1e;
+}
+
+.sales-change-btn-box button:hover {
+  background-color: #0267f3;
+  color: white;
+}
+
+.sales-delete-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+.sales-delete-wrap {
+  position: relative;
+  top: 25px;
+}
+.sales-delete-btn-box {
+  display: flex;
+  justify-content: center;
+  padding-top: 35px;
+  gap: 15px; /*간격*/
+}
+
+.sales-delete-btn-box button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: #1e1e1e;
+}
+
+.sales-delete-btn-box button:hover {
+  background-color: #0267f3;
+  color: white;
+}
+
+.filter-btn-wrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* 버튼 사이의 간격 설정 */
+}
+
+.filter-box1,
+.filter-box2 {
+  display: flex;
+  gap: 10px; /* 내부 버튼 사이의 간격 */
+}
+
+.filter-btn-wrap button {
+  width: 90px;
+  padding: 13px 20px;
+  border: none;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+  color: #1e1e1e;
+}
+
+.filter-btn-wrap button:hover {
+  background-color: #0267f3;
+  color: white;
+}
+
+.sales-close-btn {
+  width: 70px !important;
+  padding: 6px 3px !important;
+}
+
+.sales-close-btn:hover {
+  background-color: #e1e1e1 !important;
+}
+
+.sales-close-btn2:hover {
+  background-color: #e1e1e1 !important;
+}
+
+.invoice-wrap {
+  display: flex;
+  padding-top: 35px;
+  justify-content: center;
+}
+
+.invoice-title {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.sales-link {
+  color: #1e1e1e;
+}
+
+.sales-link:hover {
+  color: #1c0303;
+  text-decoration: underline;
+}
+
+/*판매상세*/
+.sales-detail-img {
+  width: 250px;
+}
+
+.sales-text {
+  font-size: 14px;
+  position: relative;
+  left: 60px;
+}
+.sales-text button {
+  position: relative;
+  right: 50px;
+  padding: 7px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ccc;
+  color: white;
+  font-size: 11px;
+}
+
+.sales-text button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transform: translateY(-2px);
+}
+
+.sales-status {
+  color: #0267f3;
+  font-weight: bold;
+  padding-bottom: 10px;
+  position: relative;
+  bottom: 40px;
+  left: -9px;
+  font-size: 13px;
+}
+
+.sales-detail-table tbody {
+  position: relative;
+  top: 10px;
+  left: 85px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.sales-detail-table td {
+  padding: 11px;
+}
+
+.sales-detail-info-title {
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.salesListBtn {
+  position: relative;
+  top: 50px;
+  left: 200px;
+}
+.salesListBtn button {
+  padding: 10px;
+  border: none;
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 5px;
+}
+.salesListBtn button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transform: translateY(-2px);
+}
+
+.sales-mini-title {
+  position: relative;
+  left: 10px;
+  font-size: 15px;
+  border-bottom: 1px solid #ccc;
+}
+.sales-detail-info {
+  font-size: 15px;
+  text-align: end;
+  position: relative;
+  right: 80px;
+  border-bottom: 1px solid #ccc;
+}
+
+/*환불내역*/
+.refundHistory-content {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+.refundHistory-content th,
+.refundHistory-content td {
+  padding: 10px;
+  text-align: center;
+}
+.refund-history-img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+.refund-history-Date {
+  border-bottom: none;
+  position: relative;
+  top: 6px;
+  color: #1e1e1e;
+  font-size: 13px;
+}
+
+.refundHistory-content td:not(.refund-history-Date) {
+  border-bottom: 0.3px solid #bfbfbf;
+}
+
+.refundBtn-box td {
+  border-bottom: 1px solid #bfbfbf;
+}
+
+.refund-info {
+  position: relative;
+  bottom: 13px;
+  font-size: 14px;
+  color: #1e1e1e;
+}
+
+.refund-history-title {
+  font-size: 15px;
+}
+
+.refund-menu {
+  /*li*/
+  width: calc(100% / 2) !important;
+}
+
+.allRefund-btn button {
+  padding: 3px;
+  background-color: transparent;
+  border: 1px solid #bfbfbf;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 13px;
+  position: relative;
+  left: 45px;
+}
+.allRefund-btn button span:first-child {
+  position: relative;
+  left: 6px;
+}
+.allRefund-btn button span:last-child {
+  position: relative;
+  top: 1px;
+  right: -1px;
+}
+
+.refund-more-btn {
+  position: relative;
+  left: 48%;
+  top: 20px;
+}
+.refund-more-btn button {
+  border: none;
+  background-color: transparent;
+  color: #8f8f8f;
+}
+.refund-more-btn button:hover {
+  text-decoration: underline;
+}
+
+.member-like-tbl-box > table > tbody > tr > td {
+  border-bottom: 1px solid #ccc;
+}

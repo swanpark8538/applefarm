@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="kr.or.iei.product.model.dao.ProductDao">
+
+	<select id="selectProductCategory" resultType="productCategory">
+		select * 
+			<if test = "table == 'IPHONE_TBL'">from IPHONE_TBL</if>
+			<if test = "table == 'MACBOOK_TBL'">from MACBOOK_TBL</if>
+			<if test = "table == 'IPAD_TBL'">from IPAD_TBL</if>
+			<if test = "table == 'WATCH_TBL'">from WATCH_TBL</if>
+			<if test = "table == 'AIRPODS_TBL'">from AIRPODS_TBL</if>
+		where product_line = #{productLine}
+		order by rownum desc
+	</select>
+	
+	<select id="productTradeChart" resultType="productTradeChart">
+		select
+		    to_char(t.trade_date, 'yy/mm/dd') as trade_date,
+		    count(*) as trade_volume,
+		    trunc(avg(t.trade_price)) as trade_price_avg
+		from
+		    trade_tbl t
+		    join product_tbl p on t.product_no = p.product_no
+		where
+		    t.trade_state in ('결제완료', '발송대기', '배송중', '배송완료', '구매확정')
+		    <!-- 여기에 term 사용했음 -->
+			and to_char(t.trade_date, 'yy/mm/dd') between to_char(sysdate-#{term}, 'yy/mm/dd') and to_char(sysdate, 'yy/mm/dd')
+		    and p.product_line = #{productLine}
+		    and p.product_gen = #{productGen}
+		    and p.product_model = #{productModel}
+		    <if test='productModel2 != null and productModel2 != ""'>and p.product_model2 = #{productModel2}</if>
+		    <!-- <if test='productColor != null and productColor != ""'>and p.product_color = #{productColor}</if> -->
+		    <if test='productStorage != null and productStorage != ""'>and p.product_storage = #{productStorage}</if>
+		    <if test='productMemory != null and productMemory != ""'>and p.product_memory = #{productMemory}</if>
+		    <if test='productChip != null and productChip != ""'>and p.product_chip = #{productChip}</if>
+		    <if test='productCpu != null and productCpu != ""'>and p.product_cpu = #{productCpu}</if>
+		    <if test='productGpu != null and productGpu != ""'>and p.product_gpu = #{productGpu}</if>
+		    <if test='productSize != null and productSize != ""'>and p.product_size = #{productSize}</if>
+		    <if test='productConnectivity != null and productConnectivity != ""'>and p.product_connectivity = #{productConnectivity}</if>
+		    <if test='productCharge != null and productCharge != ""'>and p.product_charge = #{productCharge}</if>
+		    <if test='productQuality != null and productQuality != ""'>and p.product_quality = #{productQuality}</if>
+		group by
+		    to_char(t.trade_date, 'yy/mm/dd')
+		order by
+		    trade_date asc
+	</select>
+	 
+	<select id="selectQualityList" resultType="quality">
+		select * from quality_tbl where table_name = #{tableName}
+	</select>
+	
+
+	<select id="selectOneProduct" resultType="product">
+		select * from product_tbl where product_no = #{productNo}
+	</select>
+
+	<insert id="insertProduct">
+		insert into product_tbl 
+		values
+		(product_seq.nextval,#{memberNo},#{productQuality},#{productTitle},
+		#{productExplain},#{productPrice},sysdate,'0',#{productLine},#{productGen},#{productModel},
+		#{productModel2},#{productColor},#{productStorage},#{productMemory},#{productChip},#{productCpu},#{productGpu},#{productSize},#{productConnectivity},
+		#{productCharge},#{productThumbnail},#{productSummary},#{tableName}
+		)
+		<selectKey resultType="int" keyProperty="productNo" order="AFTER">
+			select max(product_no) from product_tbl
+		</selectKey>
+	</insert>
+	
+	<insert id="insertProductFile">
+	insert into product_file_tbl values
+	(product_file_seq.nextval,#{productNo},#{filename},#{filepath})
+	</insert>
+
+	
+	<insert id="insertIphoneQualityHistory">
+		insert into IPHONE_QUALITY_HISTORY_TBL values
+		(
+			iphone_quality_history_seq.nextval,#{productNo},#{displayScreen},#{backPanelSide},#{burnIn},#{display},#{power},#{camera},
+			#{wifi},#{biometricAuthentication},#{compass},#{voiceRecording}
+		)
+	</insert>
+	
+	<insert id="insertMacbookQualityHistory">
+		insert into MACBOOK_QUALITY_HISTORY_TBL values
+		(
+			macbook_quality_history_seq.nextval,#{productNo},#{displayScreen},#{backPanelSide},#{burnIn},#{display},#{keyboard},#{ports},#{batteryEfficiency},
+			#{wirelessConnectivity},#{camera},#{microphone},#{speakersAudioJack},#{biometricAuthentication},#{power},#{voiceRecording},#{trackpad},#{operation}
+		)
+	</insert>
+	
+	<insert id="insertIpadQualityHistory">
+		insert into IPAD_QUALITY_HISTORY_TBL values
+		(
+			ipad_quality_history_seq.nextval,#{productNo},#{displayScreen},#{backPanelSide},#{burnIn},#{display},#{ports},#{batteryEfficiency},#{wirelessConnectivity}
+			,#{camera},#{microphone},#{speakersAudioJack},#{biometricAuthentication},#{power},#{voiceRecording},#{operation}
+		)
+	</insert>
+	
+	<insert id="insertWatchQualityHistory">
+		insert into WATCH_QUALITY_HISTORY_TBL values
+		(
+			watch_quality_history_seq.nextval,#{productNo},#{displayScreen},#{backPanelSide},#{burnIn},#{display},#{digitalCrownButton},#{batteryEfficiency},#{wirelessConnectivity}
+			,#{microphone},#{speaker},#{power},#{voiceRecording},#{operation}
+			
+		)
+	</insert>
+	
+	<insert id="insertAirpodsQualityHistory">
+		insert into AIRPODS_QUALITY_HISTORY_TBL values
+		(
+			airpods_quality_history_seq.nextval,#{productNo},#{soundQuality},#{connectionStability},#{batteryEfficiency},#{exterior},#{charging},#{touchSensor}
+		)
+	</insert>
+	
+	<select id="likeBoolean" resultType="int">
+		select count(*) from like_tbl where product_no = #{productNo} and member_no=#{memberNo}
+	</select>
+	
+	<select id="selectOneView" resultType="product">
+		select
+		    product_no,
+		    member_no,
+		    product_quality,
+		    product_title,
+		    product_explain,
+		    product_price,
+		    to_char(product_date,'yyyy-mm-dd'),
+		    product_hide,
+		    product_line,
+		    product_gen,
+		    product_model,
+		    product_model2,
+		    product_color,
+		    product_storage,
+		    product_memory,
+		    product_chip,
+		    product_cpu,
+		    product_gpu,
+		    product_size,
+		    product_connectivity,
+		    product_charge,
+		    product_thumbnail,
+		    product_summary,
+		    table_name,
+		    (select count(*) from like_tbl where product_no = #{productNo}) as like_count,
+		    trade_state
+		from product_tbl left join trade_tbl using (product_no)
+		where product_no = #{productNo}
+	</select>
+
+
+	<select id="selectSellerReviews" resultType="sellerReview">
+		select * from review_tbl where review_seller = #{sellerNo} order by trade_no desc
+	</select>
+	
+	<select id="selectSellerProducts" resultType="product">
+		select * from product_tbl where member_no = #{sellerNo} order by product_no desc
+	</select>
+	
+	<select id="selectProductFiles" resultType="productFile">
+		select * from product_file_tbl where product_no = #{productNo}
+	</select>
+	
+	<select id="selectIphoneQualityHistory" resultType="iphoneQualityHistory">
+		select * from IPHONE_QUALITY_HISTORY_TBL where product_no = #{productNo}
+	</select>
+	
+	<select id="selectMacbookQualityHistory" resultType="macbookQualityHistory">
+		select * from MACBOOK_QUALITY_HISTORY_TBL where product_no = #{productNo} 
+	</select>
+	
+	<select id="selectIpadQualityHistory" resultType="ipadQualityHistory">
+		select * from IPAD_QUALITY_HISTORY_TBL where product_no = #{productNo} 
+	</select>
+	
+	<select id="selectWatchQualityHistory" resultType="watchQualityHistory">
+		select * from WATCH_QUALITY_HISTORY_TBL where product_no = #{productNo} 
+	</select>
+	
+	<select id="selectAirpodsQualityHistory" resultType="airpodsQualityHistory">
+		select * from AIRPODS_QUALITY_HISTORY_TBL where product_no = #{productNo} 
+	</select>
+	
+	<select id="selectReliableProducts" resultType="reliableProductList">
+		select
+		    p.product_no,
+		    p.product_summary,
+		    p.product_price,
+		    member_no,
+		    m.member_name,
+		    m.seller_score
+		from product_tbl p
+		join member_tbl m using (member_no)
+		where product_summary = #{summary} and rownum <![CDATA[<=]]> 10
+		order by m.seller_score desc
+	</select>
+	
+	<insert id="insertLike">
+		insert into like_tbl values (like_seq.nextval, #{memberNo}, #{productNo})
+	</insert>
+	
+	<delete id="deleteLike">
+		delete from like_tbl where member_no = #{memberNo} and product_no = #{productNo}
+	</delete>
+	
+	<update id="hideProduct">
+		update product_tbl set product_hide = 1 where product_no = #{productNo}
+	</update>
+	
+	<select id="productBidList" resultType="bid">
+		select bid_no, product_no, member_no, bid_price
+		from bid_tbl
+		where
+			product_no = #{productNo} and
+			to_char(bid_date, 'yy/mm/dd') between to_char(bid_date-30, 'yy/mm/dd') and to_char(sysdate, 'yy/mm/dd')
+		order by bid_price desc
+	</select>
+
+	<select id="selectSellerInfo" resultType="member">
+		select * from member_tbl where member_no = #{sellerNo}
+	</select>
+	
+	<select id="selectSalesInquiriesList" resultType="salesInquiries">
+		SELECT * FROM
+		    (SELECT ROWNUM AS RNUM, I.* FROM
+		        (select
+		            INQUIRY_NO,
+		            PRODUCT_NO,
+		            INQUIRY_WRITER,
+		            to_char(INQUIRY_DATE,'yyyy-mm-dd HH24:MI') as INQUIRY_DATE,
+		            INQUIRY_CONTENT
+		    from SALES_INQUIRIES_TBL where product_no = #{productNo} ORDER BY INQUIRY_NO DESC)I)
+		WHERE RNUM BETWEEN #{pi.start} AND #{pi.end}
+	</select>
+	
+	<select id="totalCount" resultType="int">
+		select count(*) from SALES_INQUIRIES_TBL  where product_no = #{productNo}
+	</select>
+	
+	<select id="selectNickName" resultType="string">
+		select member_nickname from member_tbl where member_no = #{memberNo}
+	</select>
+	
+	<insert id="insertSalesInquiries">
+		insert into SALES_INQUIRIES_TBL values(SALES_INQUIRIES_SEQ.NEXTVAL,#{productNo},#{inquiryWriter},sysdate,#{inquiryContent})
+	</insert>
+	
+
+	<select id="selectReviewList" resultType="review">
+		select * from 
+			(select ROWNUM as RNUM, r.* from
+				(select 
+				    r.*,p.product_summary,m.member_nickname 
+				from review_tbl r
+				join product_tbl p on r.product_no = p.product_no
+				join member_tbl m on r.review_consumer = m.member_no
+			where review_seller = #{sellerNo})r)
+		where RNUM between #{pi.start} and #{pi.end}
+	</select>
+	
+	<select id="totalReviewCount" resultType="int">
+		select count(*) from review_tbl where review_seller = #{sellerNo}
+	</select>
+	
+	<select id="selectSellerNo" resultType="string">
+		select member_no from product_tbl where product_no = #{productNo}
+	</select>
+	
+	<select id="totalSellerProductCount" resultType="int">
+		select count(*) from product_tbl where member_no = #{sellerNo} and product_hide = '0'
+	</select>
+	
+	<select id="selectSellerProductList" resultType="product">
+		select * from 
+			(select ROWNUM as RNUM, p.* from
+				(select * from product_tbl where member_no = #{sellerNo} and product_hide = '0' order by product_no desc)p)
+		where RNUM between #{pi.start} and #{pi.end}
+	</select>
+
+	<update id="productPriceUpdate">
+		update product_tbl set product_price=#{productPrice} where product_no=#{productNo}
+	</update>
+	
+	<insert id="productTradeReserve">
+		insert into trade_tbl values (trade_seq.nextval, #{tradeSeller}, #{tradeBuyer}, #{productNo}, sysdate, null, #{tradePrice}, '예약중', null, null, null, null, null, null, null, null, null)
+	</insert>
+
+	<insert id="productBidInsert">
+		insert into bid_tbl values (bid_seq.nextval, #{productNo}, #{memberNo}, #{bidPrice}, sysdate)
+	</insert>
+	
+	<update id="productBidUpdate">
+		update bid_tbl set bid_price=#{bidPrice} where bid_no=#{bidNo}
+	</update>
+	
+	<delete id="productBidDelete">
+		delete from bid_tbl where bid_no = #{bidNo}
+	</delete>
+	
+	<insert id="insertReport">
+		insert into report_tbl values(report_seq.nextval,1,#{reportTarget},#{reportContent},sysdate,
+		#{reportingMember},#{reportedMember},0,null)
+	</insert>
+	
+	<select id="productTotalCount" resultType="int">
+		select count(*) from product_tbl where table_name = #{tableName}
+	</select>
+	
+	<select id="selectProductList" resultType="product">
+select * from 
+        (select ROWNUM as RNUM, p.* from
+            (select * from product_tbl where table_name =#{tableName} AND (
+        PRODUCT_LINE||product_gen||product_model||product_title||product_gen LIKE '%'||#{searchWord}||'%'  
+    ) order by product_no desc) p)
+    where RNUM between  #{pi.start} and #{pi.end}
+   
+	</select>
+	
+
+	<update id="updateProduct">
+		UPDATE product_tbl
+		SET
+		  member_no = #{memberNo},
+		  product_quality = #{productQuality},
+		  product_title = #{productTitle},
+		  product_explain = #{productExplain},
+		  product_price = #{productPrice},
+		  product_date = sysdate,
+		  product_hide = '0',
+		  product_line = #{productLine},
+		  product_gen = #{productGen},
+		  product_model = #{productModel},
+		  product_model2 = #{productModel2},
+		  product_color = #{productColor},
+		  product_storage = #{productStorage},
+		  product_memory = #{productMemory},
+		  product_chip = #{productChip},
+		  product_cpu = #{productCpu},
+		  product_gpu = #{productGpu},
+		  product_size = #{productSize},
+		  product_connectivity = #{productConnectivity},
+		  product_charge = #{productCharge},
+		  product_thumbnail = #{productThumbnail},
+		  product_summary = #{productSummary},
+		  table_name = #{tableName}
+		WHERE product_no = #{productNo}
+	</update>
+	
+
+
+	
+	<update id="updateIphoneQualityHistory">
+		UPDATE IPHONE_QUALITY_HISTORY_TBL
+		SET
+		  display_screen = #{displayScreen},
+		  back_panel_side = #{backPanelSide},
+		  burn_in = #{burnIn},
+		  display = #{display},
+		  power = #{power},
+		  camera = #{camera},
+		  wifi = #{wifi},
+		  biometric_authentication = #{biometricAuthentication},
+		  compass = #{compass},
+		  voice_recording = #{voiceRecording}
+		WHERE product_no = #{productNo}
+	</update>
+	
+	<update id="updateMacbookQualityHistory">
+    UPDATE MACBOOK_QUALITY_HISTORY_TBL
+    SET
+        display_screen = #{displayScreen},
+        back_panel_side = #{backPanelSide},
+        burn_in = #{burnIn},
+        display = #{display},
+        keyboard = #{keyboard},
+        ports = #{ports},
+        battery_efficiency = #{batteryEfficiency},
+        wireless_connectivity = #{wirelessConnectivity},
+        camera = #{camera},
+        microphone = #{microphone},
+        speakers_audio_jack = #{speakersAudioJack},
+        biometric_authentication = #{biometricAuthentication},
+        power = #{power},
+        voice_recording = #{voiceRecording},
+        trackpad = #{trackpad},
+        operation = #{operation}
+    WHERE product_no = #{productNo}
+</update>
+
+<update id="updateIpadQualityHistory">
+    UPDATE IPAD_QUALITY_HISTORY_TBL
+    SET
+        display_screen = #{displayScreen},
+        back_panel_side = #{backPanelSide},
+        burn_in = #{burnIn},
+        display = #{display},
+        ports = #{ports},
+        battery_efficiency = #{batteryEfficiency},
+        wireless_connectivity = #{wirelessConnectivity},
+        camera = #{camera},
+        microphone = #{microphone},
+        speakers_audio_jack = #{speakersAudioJack},
+        biometric_authentication = #{biometricAuthentication},
+        power = #{power},
+        voice_recording = #{voiceRecording},
+        operation = #{operation}
+    WHERE product_no = #{productNo}
+</update>
+
+<update id="updateWatchQualityHistory">
+    UPDATE WATCH_QUALITY_HISTORY_TBL
+    SET
+        display_screen = #{displayScreen},
+        back_panel_side = #{backPanelSide},
+        burn_in = #{burnIn},
+        display = #{display},
+        digital_crown_button = #{digitalCrownButton},
+        battery_efficiency = #{batteryEfficiency},
+        wireless_connectivity = #{wirelessConnectivity},
+        microphone = #{microphone},
+        speaker = #{speaker},
+        power = #{power},
+        voice_recording = #{voiceRecording},
+        operation = #{operation}
+    WHERE product_no = #{productNo}
+</update>
+
+<update id="updateAirpodsQualityHistory">
+    UPDATE AIRPODS_QUALITY_HISTORY_TBL
+    SET
+        sound_quality = #{soundQuality},
+        connection_stability = #{connectionStability},
+        battery_efficiency = #{batteryEfficiency},
+        exterior = #{exterior},
+        charging = #{charging},
+        touch_sensor = #{touchSensor}
+    WHERE product_no = #{productNo}
+</update>
+
+
+	
+	<delete id="deleteProductFile">
+		delete from product_file_tbl where product_no = #{productNo}
+	</delete>
+	
+
+	<select id="productMainListTotalCount" resultType="int">
+		select count(*)
+		from product_tbl p
+		left join trade_tbl t using (product_no)
+		where
+			product_hide = '0'
+	        <if test='tradeState == "판매중"'>and t.trade_state is null</if>
+	   <!-- <if test='productLine != null and productLine != ""'>and p.product_line = #{productLine}</if> -->
+	   		and p.product_line = #{productLine}
+		    <if test='productGen != null and productGen != ""'>and p.product_gen = #{productGen}</if>
+		    <if test='productModel != null and productModel != ""'>and p.product_model = #{productModel}</if>
+		    <if test='productModel2 != null and productModel2 != ""'>and p.product_model2 = #{productModel2}</if>
+	   <!-- <if test='productColor != null and productColor != ""'>and p.product_color = #{productColor}</if> -->
+		    <if test='productStorage != null and productStorage != ""'>and p.product_storage = #{productStorage}</if>
+		    <if test='productMemory != null and productMemory != ""'>and p.product_memory = #{productMemory}</if>
+		    <if test='productChip != null and productChip != ""'>and p.product_chip = #{productChip}</if>
+		    <if test='productCpu != null and productCpu != ""'>and p.product_cpu = #{productCpu}</if>
+		    <if test='productGpu != null and productGpu != ""'>and p.product_gpu = #{productGpu}</if>
+		    <if test='productSize != null and productSize != ""'>and p.product_size = #{productSize}</if>
+		    <if test='productConnectivity != null and productConnectivity != ""'>and p.product_connectivity = #{productConnectivity}</if>
+		    <if test='productCharge != null and productCharge != ""'>and p.product_charge = #{productCharge}</if>
+		    <if test='productQuality != null and productQuality != ""'>and p.product_quality = #{productQuality}</if>
+		order by product_no
+	</select>
+	
+	<select id="productMainList" resultType="product">
+		select
+			*
+		from 
+			(select ROWNUM as RNUM, s.* from
+				(select product_no, product_title, product_thumbnail, product_price, to_char(product_date,'yyyy-mm-dd') as product_date_to_char, trade_state, like_count
+				from product_tbl p
+				left join trade_tbl t using (product_no)
+				left join (select product_no, count(product_no) as like_count from like_tbl group by product_no) using (product_no)
+				where
+					product_hide = '0'
+			        <if test='product.tradeState == "판매중"'>and t.trade_state is null</if>
+			   <!-- <if test='product.productLine != null and product.productLine != ""'>and p.product_line = #{product.productLine}</if> -->
+			   		and p.product_line = #{product.productLine}
+				    <if test='product.productGen != null and product.productGen != ""'>and p.product_gen = #{product.productGen}</if>
+				    <if test='product.productModel != null and product.productModel != ""'>and p.product_model = #{product.productModel}</if>
+				    <if test='product.productModel2 != null and product.productModel2 != ""'>and p.product_model2 = #{product.productModel2}</if>
+			   <!-- <if test='product.productColor != null and product.productColor != ""'>and p.product_color = #{product.productColor}</if> -->
+				    <if test='product.productStorage != null and product.productStorage != ""'>and p.product_storage = #{product.productStorage}</if>
+				    <if test='product.productMemory != null and product.productMemory != ""'>and p.product_memory = #{product.productMemory}</if>
+				    <if test='product.productChip != null and product.productChip != ""'>and p.product_chip = #{product.productChip}</if>
+				    <if test='product.productCpu != null and product.productCpu != ""'>and p.product_cpu = #{product.productCpu}</if>
+				    <if test='product.productGpu != null and product.productGpu != ""'>and p.product_gpu = #{product.productGpu}</if>
+				    <if test='product.productSize != null and product.productSize != ""'>and p.product_size = #{product.productSize}</if>
+				    <if test='product.productConnectivity != null and product.productConnectivity != ""'>and p.product_connectivity = #{product.productConnectivity}</if>
+				    <if test='product.productCharge != null and product.productCharge != ""'>and p.product_charge = #{product.productCharge}</if>
+				    <if test='product.productQuality != null and product.productQuality != ""'>and p.product_quality = #{product.productQuality}</if>
+				order by product_no desc)s)
+		where
+			RNUM between #{pi.start} and #{pi.end}
+	</select>
+
+</mapper>
