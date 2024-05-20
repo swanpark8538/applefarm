@@ -167,8 +167,6 @@ public class ProductController {
 	@PostMapping(value = "/macbook")
 	public ResponseEntity<ResponseDTO> insertMacbook(@ModelAttribute Product product,@ModelAttribute MacbookQualityHistory partObject,@ModelAttribute MultipartFile thumbnail,@ModelAttribute MultipartFile[] productFile,@RequestAttribute int memberNo){
 
-		System.out.println(product);
-		System.out.println(partObject);
 		//회원번호
 		product.setMemberNo(memberNo);
 		
@@ -207,8 +205,6 @@ public class ProductController {
 	@PostMapping(value = "/ipad")
 	public ResponseEntity<ResponseDTO> insertIpad(@ModelAttribute Product product,@ModelAttribute IpadQualityHistory partObject,@ModelAttribute MultipartFile thumbnail,@ModelAttribute MultipartFile[] productFile,@RequestAttribute int memberNo){
 
-		System.out.println(product);
-		System.out.println(partObject);
 		//회원번호
 		product.setMemberNo(memberNo);
 		
@@ -247,8 +243,6 @@ public class ProductController {
 	@PostMapping(value = "/watch")
 	public ResponseEntity<ResponseDTO> insertWatch(@ModelAttribute Product product,@ModelAttribute WatchQualityHistory partObject,@ModelAttribute MultipartFile thumbnail,@ModelAttribute MultipartFile[] productFile,@RequestAttribute int memberNo){
 
-		System.out.println(product);
-		System.out.println(partObject);
 		//회원번호
 		product.setMemberNo(memberNo);
 		
@@ -287,8 +281,6 @@ public class ProductController {
 	@PostMapping(value = "/airpods")
 	public ResponseEntity<ResponseDTO> insertAirpods(@ModelAttribute Product product,@ModelAttribute AirpodsQualityHistory partObject,@ModelAttribute MultipartFile thumbnail,@ModelAttribute MultipartFile[] productFile,@RequestAttribute int memberNo){
 
-		System.out.println(product);
-		System.out.println(partObject);
 		//회원번호
 		product.setMemberNo(memberNo);
 		

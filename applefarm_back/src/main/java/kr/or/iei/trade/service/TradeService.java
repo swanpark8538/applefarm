@@ -101,7 +101,6 @@ public class TradeService {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("tradeList", tradeList);
 		map.put("pi", pi);
-		//System.out.println(tradeList);
 		return map;
 	}
 	@Transactional
