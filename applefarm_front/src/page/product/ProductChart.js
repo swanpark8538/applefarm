@@ -185,7 +185,7 @@ const ProductChart = (props) => {
     ],
   });
 
-  const termArr = ["3일", "6일", "9일", "12일"];
+  const termArr = ["30일", "60일", "90일", "120일"];
   const [term, setTerm] = useState(termArr[0]);
   //탭
   const changeTerm = (e) => {

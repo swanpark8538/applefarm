@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Schema(description = "거래일자별 거래량 및 평균거래가격 객체")
 public class ProductTradeChart {
 
-	private String tradeReserveDate;
+	private String tradeDate;
 	private String tradeVolume;
 	private String tradePriceAvg;
 }

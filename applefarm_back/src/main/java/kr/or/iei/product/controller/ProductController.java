@@ -73,6 +73,7 @@ public class ProductController {
 	@PostMapping(value="/category")
 	public ResponseEntity<ResponseDTO> productCategory(@RequestBody HashMap<String, String> categoryMap){
 		//categoryMap = {"table" : "~~_tbl", "productLine" : "~~"}
+		System.out.println("come here");
 		List list = productService.selectProductCategory(categoryMap);
 		if(list.size()==0) {
 			ResponseDTO response = new ResponseDTO(200, HttpStatus.OK, "fail", null);
@@ -94,10 +95,10 @@ public class ProductController {
 		String tempTerm = obj.getTempTerm();
 		int term = 0;
 		switch (tempTerm) {
-		case "3일" : term = 2; break;
-		case "6일" : term = 5; break;
-		case "9일" : term = 8; break;
-		case "12일" :term = 11; break;
+		case "30일" : term = 29; break;
+		case "60일" : term = 59; break;
+		case "90일" : term = 89; break;
+		case "120일" :term = 119; break;
 		default : break;
 		}
 		product.setTerm(term);
