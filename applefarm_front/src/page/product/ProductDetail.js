@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./productDetail.css"; //박성완
-//import "./productDetail2.css"; //박근열
 import Swal from "sweetalert2";
 import PaginationComponent from "../../component/Pagination";
 
@@ -510,7 +509,6 @@ const ProductImage = (props) => {
   );
 };
 
-//박성완
 const PswProductDetailBtn = (props) => {
   const clickEvent = props.clickEvent;
   const text = props.text;
@@ -521,7 +519,6 @@ const PswProductDetailBtn = (props) => {
   );
 };
 
-//박근열
 const ProductSummary = (props) => {
   const product = props.product;
   const selectedProduct = props.product;
@@ -673,7 +670,6 @@ const ProductSummary = (props) => {
   );
 };
 
-//박근열
 const ProductSeller = (props) => {
   const product = props.product;
   const seller = props.seller;
@@ -777,7 +773,6 @@ const Modal = (props) => {
   );
 };
 
-//박근열
 const ProductExplainDetail = (props) => {
   const product = props.product;
 
@@ -788,10 +783,6 @@ const ProductExplainDetail = (props) => {
   );
 };
 
-//박성완
-//const ProductChart = (props) => {};
-
-//박성완
 const ProductBid = (props) => {
   const isLogin = props.isLogin;
   const backServer = props.backServer;
@@ -846,7 +837,7 @@ const ProductBid = (props) => {
         },
         showCancelButton: true,
         confirmButtonText: "수정",
-        cancelButtonText: "삭제",
+        cancelButtonText: "취소",
       }).then((result) => {
         const productPrice = result.value;
         if (
@@ -876,13 +867,18 @@ const ProductBid = (props) => {
                 title: "에러 발생. 관리자에게 문의해주세요.",
               });
             });
-        } else {
+        } else if (
+          result.isConfirmed &&
+          bidList.length > 0 &&
+          productPrice <= bidList[0].bidPrice
+        ) {
           Swal.fire({
             icon: "warning",
             title: "수정 실패. 돈이 많으시군요?",
             text: "판매 버튼을 눌러주세요.",
           });
         }
+        //남은 경우의 수는 result.isConfirmed === false 일 경우임. 즉 cancelButtonText: "취소" 를 눌렀을 때임. 이 때는 그냥 모달창을 나가면 됨.
       });
     } else {
       Swal.fire({
@@ -1317,7 +1313,6 @@ const BidBtn = (props) => {
   }
 };
 
-//박성완
 const ProductQuality = (props) => {
   const { product, qualityHistory } = props;
   console.log(product);
@@ -1366,7 +1361,6 @@ const ProductQuality = (props) => {
   );
 };
 
-//박근열
 const ProductOneToOne = (props) => {
   const salesInquiriesList = props.salesInquiriesList;
   const pageInfo = props.pageInfo;
@@ -1460,7 +1454,6 @@ const SalesInquiriesItem = (props) => {
   );
 };
 
-//박근열
 const ProductTradeReview = (props) => {
   const reviewList = props.reviewList;
   const reviewPageInfo = props.reviewPageInfo;
@@ -1509,7 +1502,6 @@ const ProductTradeReview = (props) => {
   );
 };
 
-//박근열
 const ProductProductList = (props) => {
   const sellerProductList = props.sellerProductList;
   const sellerProductPageInfo = props.sellerProductPageInfo;
@@ -1544,7 +1536,6 @@ const ProductProductList = (props) => {
   );
 };
 
-//박성완
 const ProductReliable = (props) => {};
 
 const SellerProductItem = (props) => {
